@@ -16,9 +16,8 @@ const Navbar = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    const playPauseBtn = playPauseBtnRef.current;
 
-    if (!audio || !playPauseBtn) return;
+    if (!audio) return;
     const triggerAudio = () => {
       if (audio.paused) {
         audio.play().catch(() => {});
@@ -30,36 +29,9 @@ const Navbar = () => {
     document.addEventListener("click", triggerAudio);
     document.addEventListener("scroll", triggerAudio, { passive: true });
 
-    const handlePlayPause = () => {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    };
-    playPauseBtn.addEventListener("click", handlePlayPause);
-
-    const handlePause = () => {
-      setIsAudioPlaying(false);
-      playPauseBtn.classList.remove("playing");
-      playPauseBtn.classList.add("paused");
-    };
-
-    const handlePlay = () => {
-      setIsAudioPlaying(true);
-      playPauseBtn.classList.add("playing");
-      playPauseBtn.classList.remove("paused");
-    };
-
-    audio.addEventListener("pause", handlePause);
-    audio.addEventListener("play", handlePlay);
-
     return () => {
       document.removeEventListener("click", triggerAudio);
       document.removeEventListener("scroll", triggerAudio);
-      playPauseBtn?.removeEventListener("click", handlePlayPause);
-      audio?.removeEventListener("pause", handlePause);
-      audio?.removeEventListener("play", handlePlay);
     };
   }, []);
 
@@ -140,7 +112,20 @@ const Navbar = () => {
             />
             9833022443
           </a>
-          <div ref={playPauseBtnRef} id="playPauseBtn">
+          <div
+            ref={playPauseBtnRef}
+            id="playPauseBtn"
+            className={isAudioPlaying ? "playing" : "paused"}
+            onClick={() => {
+              const audio = audioRef.current;
+              if (!audio) return;
+              if (audio.paused) {
+                audio.play();
+              } else {
+                audio.pause();
+              }
+            }}
+          >
             <div className="bar bar1"></div>
             <div className="bar bar2"></div>
             <div className="bar bar3"></div>
@@ -155,7 +140,13 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <audio ref={audioRef} preload="none" loop>
+      <audio
+        ref={audioRef}
+        preload="none"
+        loop
+        onPlay={() => setIsAudioPlaying(true)}
+        onPause={() => setIsAudioPlaying(false)}
+      >
         <source src="/audio/femaleAudio.mp3" type="audio/mpeg" />
       </audio>
 
