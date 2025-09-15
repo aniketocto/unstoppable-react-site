@@ -17,6 +17,10 @@ header::before {
   z-index: -1;
 }
 
+.header.hide {
+  transform: translateY(-100%);
+}
+
 nav.navbar {
   display: flex;
   justify-content: space-between;

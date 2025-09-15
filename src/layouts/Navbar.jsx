@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
-import "../../assets/css/header.css";
+import "../assets/css/header.css";
 import { FaXmark } from "react-icons/fa6";
 
 const Navbar = () => {
@@ -9,6 +9,27 @@ const Navbar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const audioRef = useRef(null);
   const playPauseBtnRef = useRef(null);
+
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -36,7 +57,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="header">
+    <header className={`header ${isHidden ? "hide" : ""}`}>
       <nav className="navbar">
         <Link to="/">
           <img

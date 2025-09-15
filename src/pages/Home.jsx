@@ -1,12 +1,12 @@
-import React from 'react'
-import PageLayout from '../components/layouts/PageLayout'
+import Hero from "../components/layouts/Hero";
+import PageLayout from "../layouts/PageLayout";
 
 const Home = () => {
   return (
     <PageLayout>
-      <div>Home</div>
+      <Hero />
     </PageLayout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

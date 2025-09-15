@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../../assets/css/footer.css";
+import "../assets/css/footer.css";
 import {
   FaFacebook,
   FaInstagram,

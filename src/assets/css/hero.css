@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+section.hero {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.hero-content {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+img.moon {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: -20px;
+  z-index: 3;
+  pointer-events: none;
+  object-fit: cover;
+  filter: drop-shadow(0px -25px 25px #f06356);
+}
+
+img#lens {
+  position: absolute;
+  width: 100%;
+  left: 5%;
+  z-index: -1;
+  object-fit: contain;
+}
+
+.hero .hero-text {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  gap: 5px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero .hero-text p {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 0.2;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero .hero-text h2 {
+  color: #fff;
+  font-size: 18.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(90deg, #000, #eee 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Bebas Neue", san-serif;
+}
