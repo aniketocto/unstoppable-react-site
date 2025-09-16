@@ -39,17 +39,16 @@ const Footer = () => {
     formDataToSend.append("formType", "newsletterForm");
 
     try {
-      // await fetch(
-      //   "https://script.google.com/macros/s/AKfycbwG-XttXFbFUwHC1HDyHujNsSlhrSI3B7-USKEwPamukk2Ooza7TSdWwF1Yy-SqCoKjqg/exec",
-      //   {
-      //     method: "POST",
-      //     mode: "no-cors",
-      //     body: formDataToSend,
-      //   }
-      // );
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwG-XttXFbFUwHC1HDyHujNsSlhrSI3B7-USKEwPamukk2Ooza7TSdWwF1Yy-SqCoKjqg/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formDataToSend,
+        }
+      );
 
       // Navigate to thank you page or show success message
-      console.log(formData);
       toast.success("Thank you for subscribing to our newsletter!");
       setFormData({ newsletter_email: "" });
     } catch (error) {

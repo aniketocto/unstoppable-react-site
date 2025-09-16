@@ -9,6 +9,8 @@ section.hero {
   flex-direction: column;
   margin-top: 0;
   overflow: hidden;
+  z-index: 2;
+  min-height: 100vh;
 }
 
 .hero-content {
@@ -16,6 +18,8 @@ section.hero {
   height: 100%;
   margin: 0 auto;
   position: relative;
+
+  transform: translateZ(0);
 }
 
 img.moon {
@@ -23,10 +27,13 @@ img.moon {
   height: auto;
   position: absolute;
   bottom: -20px;
-  z-index: 3;
+  z-index: 5;
   pointer-events: none;
   object-fit: cover;
   filter: drop-shadow(0px -25px 25px #f06356);
+
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 img#lens {
@@ -50,6 +57,9 @@ img#lens {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .hero .hero-text p {
@@ -73,4 +83,155 @@ img#lens {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Bebas Neue", san-serif;
+
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.hero .overlay-text {
+  width: 100%;
+  position: absolute;
+  top: auto;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.hero .overlay-text h2 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.hero .overlay-text h2 span {
+  font-size: 30px;
+  font-weight: 100;
+  display: inline-block;
+  bottom: -5px;
+  position: relative;
+}
+
+.hero .overlay-text p {
+  color: #eee;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.8;
+}
+
+.overlay-btn {
+  text-align: center;
+}
+
+.overlay-btn img {
+  width: 25px;
+  object-fit: contain;
+  height: auto;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.moon-merge {
+  width: 100%;
+  height: 70px;
+  z-index: 2;
+  position: absolute;
+  bottom: -5%;
+  background: #06090eb5;
+  box-shadow: 0 4px 30px #06090e;
+  backdrop-filter: blur(11.8px);
+  -webkit-backdrop-filter: blur(11.8px);
+
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+  .hero .hero-text h2 {
+    font-size: 16.5rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hero .hero-text h2 {
+    font-size: 15.5rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  img.moon {
+    bottom: 0;
+  }
+  .hero .hero-text h2 {
+    font-size: 14.5rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .hero .hero-text h2 {
+    font-size: 11.5rem;
+  }
+
+  .hero .hero-text p {
+    font-size: 24px;
+  }
+
+  .hero .overlay-text h2 {
+    font-size: 17px;
+  }
+
+  .hero .overlay-text p {
+    font-size: 13px;
+  }
+  .overlay-btn img {
+    width: 22px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hero .hero-text h2 {
+    font-size: 8.5rem;
+  }
+
+  .hero .hero-text p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero .hero-text h2 {
+    font-size: 5.5rem;
+  }
+  .hero .hero-text p {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero .hero-text h2 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .hero .hero-text h2 {
+    font-size: 4rem;
+  }
+  .hero .hero-text p {
+    font-size: 12px;
+  }
 }

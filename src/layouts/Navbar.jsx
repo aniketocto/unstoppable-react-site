@@ -201,7 +201,7 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="#experties"
+            href="#expertize"
             className="nav-item"
             onClick={() => setIsMenuOpen(false)}
           >
