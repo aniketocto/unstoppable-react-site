@@ -1,4 +1,4 @@
-export const services = [
+export const expertiseData = [
   {
     imageSrc: "images/branding.svg",
     alt: "Branding, Strategy & Identity",
@@ -62,5 +62,166 @@ export const services = [
     content:
       "We engineer conversion-ready funnels - sending targeted signals across the digital universe to attract, engage, and land qualified leads.",
     isNew: true,
+  },
+];
+
+export const portfolioData = [
+  {
+    img: "images/project0.webp",
+    link: "#",
+    alt: "Sample Portfolio Project 0",
+  },
+  {
+    img: "images/project1.webp",
+    link: "",
+    alt: "Sample Portfolio Project 1",
+  },
+  {
+    img: "images/project2.webp",
+    link: "https://www.behance.net/gallery/226831245/Rooted-To-You",
+    alt: "Rooted To You – Branding Project",
+  },
+  {
+    img: "images/project3.webp",
+    link: "https://www.behance.net/gallery/227258277/My-Nirvana-Club",
+    alt: "My Nirvana Club – Branding Project",
+  },
+  {
+    img: "images/project4.webp",
+    link: "https://www.behance.net/gallery/226847995/Nirvana-Realty-Har-Din-Chutti",
+    alt: "Nirvana Realty – Har Din Chutti Campaign",
+  },
+  {
+    img: "images/project6.webp",
+    link: "",
+    alt: "Sample Portfolio Project 6",
+  },
+  {
+    img: "images/project7.webp",
+    link: "",
+    alt: "Sample Portfolio Project 7",
+  },
+  {
+    img: "images/project8.webp",
+    link: "",
+    alt: "Sample Portfolio Project 8",
+  },
+  {
+    img: "images/project9.webp",
+    link: "",
+    alt: "Sample Portfolio Project 9",
+  },
+  {
+    img: "images/project10.webp",
+    link: "",
+    alt: "Sample Portfolio Project 10",
+  },
+];
+
+export const companyIcon = [
+  {
+    imgsrc: "images/NR.png",
+    alt: "NR",
+  },
+  {
+    imgsrc: "images/Ojaldevelopers.webp",
+    alt: "Ojal developers",
+  },
+  {
+    imgsrc: "images/RootedLOGO.webp",
+    alt: "Rooted",
+  },
+  {
+    imgsrc: "images/MNS.png",
+    alt: "MNS",
+  },
+  {
+    imgsrc: "images/Sundeck.png",
+    alt: "Sundeck",
+  },
+  {
+    imgsrc: "images/tGlobal.png",
+    alt: "tGlobal",
+  },
+  {
+    imgsrc: "images/aabo.png",
+    alt: "aabo",
+  },
+  {
+    imgsrc: "images/MNS.png",
+    alt: "MNS",
+  },
+];
+
+export const testimonialData = [
+  {
+    placeholder: "A",
+    quote: `It has been a wonderful experience working with Deepika and
+    her team. We have been working on multiple projects with
+    multiple changes and improvements. These guys have not
+    failed to deliver on their promises. I would surely
+    recommend them to other businesses. Thanks team Unstoppable.`,
+    author: "~Advait Golatkar",
+  },
+  {
+    placeholder: "P",
+    quote: `I have been working with this agency for more than 3 years
+    now and she's the best in the industry. She always
+    comes up with innovative ways to do the shoots and I highly
+    recommend her agency!`,
+    author: "~Pratik Kharat",
+  },
+  {
+    placeholder: "A",
+    quote: `Honestly, working with Unstoppable Creative Agency was the
+    best decision we made for our brand. Right from the logo to
+    our social media presence, they handled everything so
+    smoothly. The team is super friendly, always available, and
+    full of creative ideas.`,
+    author: "~Aayushi Sharma",
+  },
+  {
+    placeholder: "A",
+    quote: `Very professional and easy to work with. They delivered
+    everything on time and the quality was top-class. Totally
+    worth it!`,
+    author: "~Ankur Jain",
+  },
+];
+
+export const faqData = [
+  {
+    question: "What Can Creative Agencies Do?",
+    answer: `Creative agencies help businesses make the most of their visual
+    identity and ensure that their brand visuals resonate with their
+    values. At Unstoppable Creative Agency, we offer a wide range
+    of creative services, including graphic design, branding,
+    logo design, video production, photography, and animation.`,
+  },
+  {
+    question: "How Can Unstoppable Creative Agency Help My Brand Stand Out?",
+    answer: `As the best creative agency in Mumbai, Unstoppable Creative
+    Agency combines creativity with strategy to develop impactful
+    solutions that make your brand excel.`,
+  },
+  {
+    question: "What Makes Unstoppable the Top Creative Agency in Mumbai?",
+    answer: `What sets Unstoppable Creative Agency apart is our commitment to
+    innovation, quality, and results. We don’t just follow trends;
+    we create them.`,
+  },
+  {
+    question:
+      "Can Unstoppable Handle Both Creative Design and Video Production?",
+    answer: `Absolutely. As a leading creative agency in Mumbai, Unstoppable
+    Creative Agency offers a full suite of creative design and video
+    production services.`,
+  },
+  {
+    question: "How Do I Get Started with Unstoppable Creative Agency?",
+    answer: `Getting started with Unstoppable Creative Agency is easy. Simply
+    contact us to schedule a consultation, and our team will work
+    with you to develop a customized plan that meets your business
+    goals.`,
   },
 ];

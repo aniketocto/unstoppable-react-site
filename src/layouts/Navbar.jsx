@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import "../assets/css/header.css";
 import { FaXmark } from "react-icons/fa6";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,6 +58,16 @@ const Navbar = () => {
     };
   }, []);
 
+  const smoothScroll = (e, target) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: target,
+      ease: "power2.inOut",
+    });
+  };
+
   return (
     <header className={`header ${isHidden ? "hide" : ""}`}>
       <nav className="navbar">
@@ -97,14 +109,22 @@ const Navbar = () => {
           </li>
 
           <li>
-            <a href="#our-work" className="nav-item">
+            <a
+              className="nav-item"
+              href="#our-work"
+              onClick={(e) => smoothScroll(e, "#our-work")}
+            >
               <span className="text">Our Work</span>
               <span className="text-hover">Our Work</span>
             </a>
           </li>
 
           <li>
-            <a href="#experties" className="nav-item">
+            <a
+              href="#experties"
+              className="nav-item"
+              onClick={(e) => smoothScroll(e, "#experties")}
+            >
               <span className="text">Expertise</span>
               <span className="text-hover">Expertise</span>
             </a>
@@ -201,9 +221,17 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="#expertize"
+            href="#experties"
             className="nav-item"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMenuOpen(false);
+              gsap.to(window, {
+                duration: 1.5, // scroll speed (seconds)
+                scrollTo: "#dna_form", // target section
+                ease: "power2.inOut", // smooth easing
+              });
+            }}
           >
             Expertise
           </a>

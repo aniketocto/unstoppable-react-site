@@ -73,8 +73,6 @@ const DnaForm = () => {
           <br />
           <span>We will Follow Up Soon.</span>
         </h2>
-
-        {/* FIX: Added onSubmit */}
         <form className="dna_form" id="dnaForm" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="fullName">Full Name</label>

@@ -29,7 +29,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
 .form_container {
@@ -92,4 +92,21 @@ button.cta-button {
 
 button.cta-button:hover {
   background-color: #c61818;
+}
+
+.ourClients {
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 700;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .ourClients {
+    font-size: 32px;
+    padding-top : 0;
+  }
+  
 }

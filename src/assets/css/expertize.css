@@ -1,6 +1,6 @@
 section.expertize-section {
   width: 100%;
-  padding: 20px 100px 0;
+  padding: 50px 100px 50px;
   text-align: center;
   color: #fff;
   position: relative;
@@ -25,4 +25,162 @@ section.expertize-section h2 {
   text-transform: capitalize;
   z-index: 10;
   position: relative;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 100%;
+  margin: 40px auto 0;
+}
+
+.glass-card {
+  width: 22%;
+  height: 230px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  background-image: url("/assets/image/exp-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: grab;
+  z-index: 2;
+}
+
+.glass-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+p.service-header {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+p.service-content {
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.new-experties {
+  position: absolute;
+  font-size: 10px;
+  padding: 2px 4px;
+  top: 5%;
+  right: 4%;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  animation: sparkle 1.2s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0% {
+    box-shadow: 0 0 2px #fff, 0 0 4px #e43941, 0 0 6px #e43941;
+  }
+
+  50% {
+    box-shadow: 0 0 6px #fff, 0 0 12px #e43941, 0 0 20px #e43941;
+  }
+
+  100% {
+    box-shadow: 0 0 2px #fff, 0 0 4px #e43941, 0 0 6px #e43941;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  section.expertize-section {
+    width: 100%;
+    padding: 50px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .service-cards {
+    max-width: 100%;
+  }
+  .glass-card {
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .glass-card {
+    padding: 20px 10px;
+  }
+  .glass-card img {
+    width: 50px;
+    aspect-ratio: 1/1;
+  }
+  p.service-header {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .glass-card {
+    width: 29%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .glass-card {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .glass-card {
+    width: 100%;
+  }
+  section.expertize-section {
+    padding: 50px 25px;
+  }
+  section.expertize-section h2 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 400px) {
+  section.expertize-section h4 {
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+
+  section.expertize-section h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  section.expertize-section h4 {
+    font-size: 26px;
+  }
+  section.expertize-section h2 {
+    font-size: 14px;
+  }
 }

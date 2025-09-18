@@ -19,7 +19,7 @@ const LazyVideo = () => {
           }
         });
       },
-      { threshold: 0.5 } // play when at least 50% visible
+      { threshold: 0.1 } // play when at least 50% visible
     );
 
     observer.observe(videoElement);
@@ -30,7 +30,7 @@ const LazyVideo = () => {
   }, []);
 
   return (
-    <section className="w-full h-[95vh] relative overflow-hidden z-10" style={{
+    <section className="w-full h-auto lg:h-[95vh] relative overflow-hidden z-10" style={{
       margin: "40px auto"
     }}>
       <video

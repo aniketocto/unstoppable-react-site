@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import "../assets/css/hero.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 // Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -59,7 +60,7 @@ const Hero = () => {
 
         // Add animations to timeline
         tl.to(moonRef.current, { y: moonMove, ease: "none" }, 0)
-          .to(mergeRef.current, { y: mergeMove, ease: "none" }, 0)
+          .to(mergeRef.current, { y: moonMove, ease: "none" }, 0)
           .to(overlayRef.current, { y: overlayMove, ease: "none" }, 0)
           .to(unstoppableRef.current, { y: unstoppableMove, ease: "none" }, 0)
           .to(heroTextRef.current, { y: heroTextSlow, ease: "none" }, 0);
@@ -143,6 +144,14 @@ const Hero = () => {
             href="#dna_form"
             className="overlay-btn"
             aria-label="Go to DNA form"
+            onClick={(e) => {
+              e.preventDefault();
+              gsap.to(window, {
+                duration: 1.5, // scroll speed (seconds)
+                scrollTo: "#dna_form", // target section
+                ease: "power2.inOut", // smooth easing
+              });
+            }}
           >
             <img src="images/dArrow.webp" alt="down arrow" />
           </a>

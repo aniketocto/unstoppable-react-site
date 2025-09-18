@@ -5,6 +5,11 @@ import PageLayout from "../layouts/PageLayout";
 import MarqueText from "../components/MarqueText";
 import LazyVideo from "../components/LazyVideo";
 import Expertize from "../components/Expertize";
+import Portfolio from "../components/Portfolio";
+import Companies from "../components/Companies";
+import Testimonials from "../components/Testimonials";
+import FAQAccordion from "../components/FAQAccordion";
+import Contact from "../components/Contact";
 
 const Home = () => {
   return (
@@ -18,6 +23,18 @@ const Home = () => {
       </Marquee>
       <LazyVideo />
       <Expertize />
+      <Portfolio />
+
+      <h4 className="ourClients">Our Clients</h4>
+      <Marquee className="h-fit relative z-10" speed={50} gradient={false}>
+        <Companies />
+      </Marquee>
+      <br />
+      <br />
+
+      <Testimonials />
+      <Contact />
+      <FAQAccordion />
     </PageLayout>
   );
 };

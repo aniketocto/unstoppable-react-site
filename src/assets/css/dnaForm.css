@@ -3,7 +3,7 @@
   height: 600px;
   margin: 0;
   display: flex;
-  padding: 0 100px 50px;
+  padding: 50px 100px 50px;
   justify-content: center;
   align-items: flex-start;
   position: relative;
