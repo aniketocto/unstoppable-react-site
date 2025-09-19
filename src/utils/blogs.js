@@ -1,0 +1,78 @@
+export const blogs = [
+  {
+    title: "What is a Branding Agency?",
+    excerpt:
+      "In today’s fast-paced and highly competitive market, brands are....",
+    date: "August 20, 2025",
+    image: "images/blog-9.webp",
+    recentImage: "images/blog-9.webp",
+    link: "/blog/what-is-a-branding-agency",
+  },
+  {
+    title: "What is a Creative Agency?",
+    excerpt:
+      "In today’s fast-paced digital world, where brands are competing....",
+    date: "August 20, 2025",
+    image: "images/blog-8.webp",
+    recentImage: "images/blog-8.webp",
+    link: "/blog/what-is-a-creative-agency",
+    file: "/blogs/what-is-a-creative-agency.md",
+  },
+
+  {
+    title: "Why Branding Is the Backbone of Every Successful Business",
+    excerpt: "Discover why branding is important to business growth...",
+    date: "July 29, 2025",
+    image: "/images/blog-7.webp",
+    link: "/blog/7-reasons-why-branding-is-the-backbone-of-every-successful-business",
+    file: "/blogs/7-reasons-why-branding-is-the-backbone-of-every-successful-business.md",
+  },
+  {
+    title: "How Do Creative Agencies Work? Uncovering the Magic",
+    excerpt: "When you think about the most memorable brands in...",
+    date: "July 14, 2025",
+    image: "images/blog-6-img3.webp",
+    recentImage: "images/blog-6-img3.webp",
+    link: "/blog/how-do-creative-agencies-work",
+  },
+  {
+    title: "7 Logo Design Trends in 2025 – What’s In and What’s Out",
+    excerpt: "Logo design is no longer just a visual mark; it's the...",
+    date: "June 23, 2025",
+    image: "images/logo-design.webp",
+    recentImage: "images/logo-design.webp",
+    link: "/blog/logo-design-trends-for-2025",
+  },
+  {
+    title: "How to Build a Brand Identity That Stands Out",
+    excerpt: "In a world of competing ad taglines and short...",
+    date: "June 18, 2025",
+    image: "images/creative-agency-mumbai-1.webp",
+    recentImage: "images/creative-agency-mumbai-1.webp",
+    link: "/blog/how-to-build-brand-identity",
+  },
+  {
+    title: "What Is Experiential Marketing - A Brief Guide",
+    excerpt: "In a day and age where audiences are more digitally...",
+    date: "May 31, 2025",
+    image: "assets/image/blog-1.webp",
+    recentImage: "images/blog-1.webp",
+    link: "/blog/what-is-experiential-marketing-a-brief-guide",
+  },
+  {
+    title: "5 Key Elements of Brand Strategy",
+    excerpt: "In 2025, clarity is currency, and the brands that win...",
+    date: "May 31, 2025",
+    image: "assets/image/blog-2.webp",
+    recentImage: "images/blog-2.webp",
+    link: "/blog/5-key-elements-of-brand-strategy",
+  },
+  {
+    title: "Why Branding Is Important in 2025",
+    excerpt: "In an age defined by rapid innovation and shrinking...",
+    date: "May 31, 2025",
+    image: "assets/image/blog-3.webp",
+    recentImage: "images/blog-3.webp",
+    link: "/blog/why-branding-is-important-in-2025",
+  },
+];

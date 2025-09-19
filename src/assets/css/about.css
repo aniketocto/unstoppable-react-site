@@ -257,6 +257,7 @@ section.industry-section {
 
 .the-founder {
   width: 100%;
+  position: relative;
   height: auto;
   display: flex;
   align-items: center;

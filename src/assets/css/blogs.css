@@ -1,0 +1,250 @@
+.new-blog_header {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 10%;
+}
+
+.new-blog_header h1 {
+  font-family: "poppins";
+  position: relative;
+  color: #ffffff;
+  font-size: 50px;
+  text-transform: uppercase;
+  z-index: 2;
+  margin: 0;
+}
+
+.new-blog_header .planet {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.new-blog_header .galaxy {
+  width: 40%;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.new-blog_header .gifVideo {
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 50%;
+  height: auto;
+  max-height: 100%;
+  z-index: 3;
+}
+
+section.blog-grid {
+  width: 100%;
+  height: auto;
+  padding: 50px 100px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.blog-card {
+  background: rgba(18, 18, 18, 0.829);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border-radius: 16px;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card a {
+  text-decoration: none;
+}
+
+.blog-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.blog-content {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.blog-title {
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.blog-excerpt {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+.blog-meta {
+  font-size: 12px;
+  color: #aaa;
+}
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #f45a5a;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+@media screen and (min-width: 1500px) {
+  .blog-image {
+    height: 250px;
+  }
+  .blog-title {
+    font-size: 25px;
+  }
+  .blog-excerpt {
+    font-size: 18px;
+  }
+  .blog-meta {
+    font-size: 18px;
+  }
+  .read-more {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  section.blog-hero {
+    height: 50vh;
+  }
+
+  section.blog-hero img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  section.blog-grid {
+    padding: 20px 40px;
+  }
+  .new-blog_header h1 {
+    font-size: 35px;
+    padding: 0 20px;
+  }
+  .new-blog_header {
+    margin-top: 15%;
+    height: 450px;
+  }
+  .blog-image {
+    height: 175px;
+  }
+  .blog-title {
+    font-size: 16px;
+    margin-bottom: 7px;
+  }
+  .blog-excerpt {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .new-blog_header {
+    margin-top: 10%;
+    /*height: 50vh;*/
+  }
+  section.blog-grid {
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .new-blog_header h1 {
+    font-size: 30px;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  section.blog-grid {
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .blog-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .blog-excerpt {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .read-more {
+    margin-top: 5px;
+  }
+  .blog-content {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section.blog-hero h1 {
+    font-size: 90px;
+  }
+  .blog-title {
+    font-size: 20px;
+  }
+  .blog-excerpt {
+    font-size: 15px;
+  }
+  .new-blog_header .gifVideo {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .new-blog_header {
+    margin-top: 25%;
+    height: 35vh;
+  }
+  .new-blog_header img {
+    width: 700px;
+  }
+
+  .new-blog_header h1 {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .blog-title {
+    font-size: 18px;
+  }
+  .blog-excerpt {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 350px) {
+  section.blog-grid {
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .blog-image {
+    height: 175px;
+  }
+}

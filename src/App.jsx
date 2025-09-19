@@ -7,9 +7,10 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Career from "./pages/career";
-import Blogs from "./pages/blogs";
 import About from "./pages/About";
 import { Toaster } from "react-hot-toast";
+import Blogs from "./pages/Blogs";
+import BlogPage from "./pages/BLogPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/career" element={<Career />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
         {/* fallback */}
       </Routes>

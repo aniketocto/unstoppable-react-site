@@ -73,7 +73,7 @@ const Navbar = () => {
       <nav className="navbar">
         <Link to="/">
           <img
-            src="images/Logo.webp"
+            src="/images/Logo.webp"
             alt="Unstoppable Creative Agency logo in bold modern font."
             className="logo"
             width={250}
