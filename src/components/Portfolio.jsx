@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "../assets/css/portfolio.css";
 import { portfolioData } from "../utils/data";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import FormModal from "../layouts/FormModal";
 
 const Portfolio = () => {
   const rotatorRef = useRef(null);
@@ -91,7 +92,11 @@ const Portfolio = () => {
           engineered a brand that speaks the language of modernity and scale,
           future-ready and rooted in trust.
         </p>
+
       </div>
+        <div className="portfolio-cta">
+          <FormModal buttonTitle="START A PROJECT" />{" "}
+        </div>
     </div>
   );
 };

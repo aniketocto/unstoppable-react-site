@@ -121,8 +121,8 @@ const Navbar = () => {
 
           <li>
             <a
-              href="#experties"
               className="nav-item"
+              href="#experties"
               onClick={(e) => smoothScroll(e, "#experties")}
             >
               <span className="text">Expertise</span>

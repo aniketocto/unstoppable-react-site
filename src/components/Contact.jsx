@@ -53,6 +53,7 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
   return (
     <section className="contact-section" id="home-cta">
       <div className="form-container">
@@ -131,7 +132,7 @@ const Contact = () => {
               className="cta-button"
               disabled={isSubmitting}
             >
-              <p>{isSubmitting ? "Submitting..." : "GET STARTED NOW"}</p>
+              <p className="uppercase">{isSubmitting ? "Submitting..." : "Fly me to the moon"}</p>
               <img
                 src="images/rocket.webp"
                 alt="CTA form under Know Your DNA section by Unstoppable Creative Agency."

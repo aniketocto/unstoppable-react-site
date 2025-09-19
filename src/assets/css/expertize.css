@@ -47,7 +47,7 @@ section.expertize-section h2 {
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 
-  background-image: url("/assets/image/exp-bg.png");
+  background-image: url("images/exp-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,8 +63,14 @@ section.expertize-section h2 {
   transition: transform 0.2s ease;
   transform-style: preserve-3d;
   will-change: transform;
-  cursor: grab;
   z-index: 2;
+}
+
+.glass-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 5;
 }
 
 .glass-card img {
@@ -110,6 +116,26 @@ p.service-content {
   }
 }
 
+.decoImg1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 300px;
+  width: 500px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#deco3 {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 500px;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 1300px) {
   section.expertize-section {
     width: 100%;
@@ -144,6 +170,10 @@ p.service-content {
     width: 29%;
     height: auto;
   }
+  .decoImg1 {
+    max-width: 220px;
+    top: 20px;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -161,6 +191,7 @@ p.service-content {
   }
   section.expertize-section h2 {
     font-size: 17px;
+    margin-bottom: 20px;
   }
 }
 
@@ -172,7 +203,6 @@ p.service-content {
 
   section.expertize-section h2 {
     font-size: 16px;
-    margin-bottom: 20px;
   }
 }
 

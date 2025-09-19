@@ -1,0 +1,67 @@
+.form-button {
+  width: fit-content;
+  position: relative;
+  z-index: 10;
+  background-color: #e43941;
+  color: white;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+  background-color: #e63c3c;
+  transform: translateY(-2px);
+}
+
+.form-button:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 10px rgba(255, 60, 60, 0.2);
+}
+
+.form-close {
+  position: absolute;
+  width: fit-content;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.modal-form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 400px) {
+  .form-button {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .form-button {
+    padding: 12px 20px;
+    font-size: 10px;
+  }
+}
+

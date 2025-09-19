@@ -25,6 +25,10 @@ const Home = () => {
       <Expertize />
       <Portfolio />
 
+      <br className="block md:hidden" />
+      <br className="block md:hidden" />
+      <br className="block md:hidden" />
+
       <h4 className="ourClients">Our Clients</h4>
       <Marquee className="h-fit relative z-10" speed={50} gradient={false}>
         <Companies />

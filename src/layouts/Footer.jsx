@@ -9,6 +9,7 @@ import {
 import { BsEnvelopeAt } from "react-icons/bs";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import gsap from "gsap";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,15 @@ const Footer = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const smoothScroll = (e, target) => {
+    e.preventDefault();
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: target,
+      ease: "power2.inOut",
+    });
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -115,8 +125,12 @@ const Footer = () => {
         <div className="menu-row">
           <h3>Quick Links</h3>
           <Link to="/about">About Us</Link>
-          <a href="#ourworks">Our Work</a>
-          <a href="#experties">Expertise</a>
+          <a href="#our-work" onClick={(e) => smoothScroll(e, "#our-work")}>
+            Our Work
+          </a>
+          <a href="#experties" onClick={(e) => smoothScroll(e, "#experties")}>
+            Expertise
+          </a>
           <Link to="/career">Career</Link>
           <Link to="/blogs">Blogs</Link>
         </div>
