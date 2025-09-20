@@ -10,7 +10,7 @@ import Career from "./pages/career";
 import About from "./pages/About";
 import { Toaster } from "react-hot-toast";
 import Blogs from "./pages/Blogs";
-import BlogPage from "./pages/BLogPage";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   return (
