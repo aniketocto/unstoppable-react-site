@@ -4,7 +4,7 @@ import { careerServices } from "../utils/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import CareerForm from "../components/careerForm";
+import CareerForm from "../components/CareerForm";
 
 const Career = () => {
   return (
