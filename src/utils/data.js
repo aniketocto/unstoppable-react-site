@@ -225,3 +225,31 @@ export const faqData = [
     goals.`,
   },
 ];
+
+export const careerServices = [
+  {
+    header: "Creative at the Core",
+    content:
+      "We are a creative agency, where every team member contributes to bold ideas and transformative solutions. From branding to digital strategy, you’ll be part of projects that set new benchmarks in the industry.",
+  },
+  {
+    header: "Collaborative Culture",
+    content:
+      "Our work thrives on collaboration. At Unstoppable, you’ll join a team that values diverse perspectives, open communication, and mutual respect.",
+  },
+  {
+    header: "Grow with Us",
+    content:
+      "We invest in our people through mentorship, learning opportunities, and exposure to multi-industry projects - from real estate and hospitality to fashion and FMCG.",
+  },
+  {
+    header: "Impactful Work",
+    content:
+      "Your creativity will shape campaigns, designs, and strategies that resonate with audiences and drive real-world results for brands.",
+  },
+  {
+    header: "A Future-Forward Workplace",
+    content:
+      "We’re not just creating for today; we’re designing for tomorrow. Our work environment embraces innovation, adaptability, and sustainability in everything we do.",
+  },
+];

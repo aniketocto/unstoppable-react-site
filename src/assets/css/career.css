@@ -1,0 +1,359 @@
+@font-face {
+  font-family: "Nasaliation"; /* choose a name you will use in CSS */
+  src: url("/font/nasalization.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+.career-hero {
+  margin: 10% auto 50px;
+  width: 85%;
+  
+  height: auto;
+  color: #fff;
+  text-align: center;
+}
+
+.mob-career-service {
+  display: none;
+}
+
+.career-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: capitalize;
+  z-index: 10;
+  position: relative;
+}
+
+.career-service {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.career-service .service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 98%;
+  margin: 40px auto 0;
+}
+
+.career-service .service-cards .glass-card {
+  width: 32%;
+  height: 185px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  background-image: url("images/exp-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  cursor: grab;
+  z-index: 2;
+}
+
+.glass-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 5;
+}
+
+.career-service .service-cards .glass-card p.service-header {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.career-service .service-cards .glass-card p.service-content {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* CareerForm */
+.career-form-section {
+  margin: 5% auto;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 85%;
+  border: 0.1px solid #7e7e7e;
+  background: #06090e48;
+  z-index: 1;
+  padding: 20px;
+  position: relative;
+  /*clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%);*/
+  clip-path: polygon(
+    0% 0%,
+    0% 0%,
+    98% 0%,
+    100% 0%,
+    100% 100%,
+    98% 100%,
+    0% 100%,
+    0% 0%
+  );
+}
+
+.career-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
+  width: 50%;
+}
+
+.career-form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.career-form h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: capitalize;
+  z-index: 10;
+  position: relative;
+  margin: 10px 0 12px;
+  text-align: center;
+  font-family: "Nasaliation", sans-serif;
+  width: 100%;
+}
+
+.career-form > p {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.divider {
+  width: 0.1px;
+  background: #7e7e7e;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 0.1px solid #7e7e7e;
+  background: #06090e;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 9;
+}
+
+.divider::before {
+  top: -13px;
+}
+
+.divider::after {
+  bottom: -13px;
+}
+
+.career-media-slider {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  z-index: 3;
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff00;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.swiper-slide img,
+.swiper-slide video {
+  width: 90%;
+  height: 650px;
+  object-fit: cover;
+  /* Adjust the object-fit to cover */
+  display: block;
+  border-radius: 10px;
+  z-index: 3;
+  filter: grayscale(1);
+}
+/* ---------- */
+
+.career-cta {
+  padding: 0 113px 60px;
+  font-family: "Poppins";
+  text-align: left;
+  color: #fff;
+}
+
+.career-cta h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.career-intro {
+  color: #fff;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+.highlight {
+  color: #e43941;
+  font-weight: 600;
+}
+
+.apply-info {
+  color: #fff;
+  line-height: 1.6;
+}
+
+.apply-info a {
+  color: #e43941;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.file-note {
+  color: #e43941;
+  font-size: 10px;
+}
+@media (max-width: 1300px) {
+  .career-service .service-cards .glass-card {
+    height: 200px;
+  }
+  .career-service .service-cards .glass-card p.service-header {
+    font-size: 20px;
+    margin: 8px 0 0;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .career-service .service-cards {
+    max-width: 100%;
+  }
+  .career-service .service-cards .glass-card {
+    width: 40%;
+  }
+  .swiper-slide img,
+  .swiper-slide video {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-hero {
+    margin: 25% auto 30px;
+  }
+  .career-hero h1,
+  .career-cta h1 {
+    font-size: 28px;
+  }
+  .career-service {
+    display: none;
+  }
+  .mob-career-service {
+    display: block;
+    margin-top: 20px;
+  }
+  .glass-card {
+    width: 100% !important;
+  }
+  p.service-header {
+    font-size: 24px;
+  }
+  p.service-content {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-hero h1 {
+    font-size: 22px;
+  }
+  .career-form-section {
+    width: 80%;
+    flex-direction: column-reverse;
+  }
+  .divider {
+    display: none;
+  }
+  .career-form-container,
+  .career-media-slider {
+    width: 100%;
+  }
+  .career-form h2 {
+    font-size: 24px;
+  }
+  .career-form > p {
+    text-align: justify;
+  }
+  .career-cta {
+    padding: 0 50px 40px;
+  }
+
+  .career-cta h1 {
+    font-size: 22px;
+  }
+  .career-cta p {
+    font-size: 16px;
+  }
+  .career-form-section {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 350px) {
+  .career-hero {
+    margin: 30% auto 20px;
+  }
+  .career-hero h1 {
+    font-size: 20px;
+  }
+  .career-cta {
+    padding: 0 30px 30px;
+  }
+  .career-cta h1 {
+    font-size: 20px;
+  }
+  .career-cta p {
+    font-size: 14px;
+  }
+}
