@@ -12,7 +12,9 @@ section.hero {
   z-index: 2;
   min-height: 100vh;
 }
-
+.hero {
+  opacity: 0; /* stays invisible until GSAP fades it */
+}
 .hero-content {
   width: 100%;
   height: 100%;

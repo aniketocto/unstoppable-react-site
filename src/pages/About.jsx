@@ -3,8 +3,27 @@ import "../assets/css/about.css";
 import PageLayout from "../layouts/PageLayout";
 import Companies from "../components/Companies";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    document.title =
+      " Unstoppable Creative Agency | India’s Top Branding Agency";
+
+    const metaDesc = document.querySelector("meta[name='description']");
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalogues."
+      );
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content =
+        "Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalogues.";
+      document.head.appendChild(meta);
+    }
+  }, []);
   return (
     <PageLayout>
       {/* Banner & Intro */}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import "../assets/css/header.css";
 import { FaXmark } from "react-icons/fa6";
@@ -11,27 +11,42 @@ const Navbar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const audioRef = useRef(null);
   const playPauseBtnRef = useRef(null);
+  const navigate = useNavigate();
 
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+  let lastScrollY = window.scrollY;
+  let hideTimeout;
 
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      // scrolling down → hide immediately
+      setIsHidden(true);
+    } else {
+      // scrolling up → show first
+      setIsHidden(false);
+
+      // clear any old timer
+      if (hideTimeout) clearTimeout(hideTimeout);
+
+      // auto-hide after 3s
+      hideTimeout = setTimeout(() => {
         setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
+      }, 3000);
+    }
 
-      lastScrollY = window.scrollY;
-    };
+    lastScrollY = window.scrollY;
+  };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    if (hideTimeout) clearTimeout(hideTimeout);
+  };
+}, []);
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,33 +54,41 @@ const Navbar = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-
     if (!audio) return;
-    const triggerAudio = () => {
-      if (audio.paused) {
-        audio.play().catch(() => {});
-      }
-      document.removeEventListener("click", triggerAudio);
-      document.removeEventListener("scroll", triggerAudio);
+
+    const userPaused = localStorage.getItem("userPaused");
+
+    if (!userPaused) {
+      audio.play().catch(() => {});
+    }
+
+    const handlePause = () => {
+      localStorage.setItem("userPaused", "true");
     };
 
-    document.addEventListener("click", triggerAudio);
-    document.addEventListener("scroll", triggerAudio, { passive: true });
+    const handlePlay = () => {
+      localStorage.removeItem("userPaused"); 
+    };
+
+    audio.addEventListener("pause", handlePause);
+    audio.addEventListener("play", handlePlay);
 
     return () => {
-      document.removeEventListener("click", triggerAudio);
-      document.removeEventListener("scroll", triggerAudio);
+      audio.removeEventListener("pause", handlePause);
+      audio.removeEventListener("play", handlePlay);
     };
   }, []);
 
-  const smoothScroll = (e, target) => {
-    e.preventDefault();
+  const smoothScroll = (target) => {
+    navigate("/");
     setIsMenuOpen(false);
-    gsap.to(window, {
-      duration: 1.5,
-      scrollTo: target,
-      ease: "power2.inOut",
-    });
+    setTimeout(() => {
+      gsap.to(window, {
+        duration: 1.5,
+        scrollTo: target,
+        ease: "power2.inOut",
+      });
+    }, 100);
   };
 
   return (
@@ -212,7 +235,7 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="#ourworks"
+            href="/#ourworks"
             className="nav-item"
             onClick={() => setIsMenuOpen(false)}
           >
@@ -221,7 +244,7 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="#experties"
+            href="/#experties"
             className="nav-item"
             onClick={(e) => {
               e.preventDefault();

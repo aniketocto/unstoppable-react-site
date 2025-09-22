@@ -80,21 +80,23 @@ const Portfolio = () => {
       </div>
 
       <div class="portfolio-bottom-content">
-        <p>
-          At Unstoppable Creative Agency, we&rsquo;ve launched multiple brands
-          into new galaxies. Spanning across diverse sectors, each project is
-          like a &lsquo;Universe Conquered&rsquo; or a &lsquo;Mission
-          Accomplished&rsquo; For Mynirvana Stays, we crafted a serene brand
-          universe where hospitality meets harmony. For Abbo, a bold and
-          energetic fashion brand, we built a launch-ready identity packed with
-          flair, edge, and movement. For Nirvana Realty, we developed a brand
-          grounded in purpose yet expansive in vision. With Today Global, we
-          engineered a brand that speaks the language of modernity and scale,
-          future-ready and rooted in trust.
-        </p>
-      </div>
-      <div className="portfolio-cta">
-        <FormModal buttonTitle="START A PROJECT" />{" "}
+        <div>
+          <p>
+            At Unstoppable Creative Agency, we&rsquo;ve launched multiple brands
+            into new galaxies. Spanning across diverse sectors, each project is
+            like a &lsquo;Universe Conquered&rsquo; or a &lsquo;Mission
+            Accomplished&rsquo; For Mynirvana Stays, we crafted a serene brand
+            universe where hospitality meets harmony. For Abbo, a bold and
+            energetic fashion brand, we built a launch-ready identity packed
+            with flair, edge, and movement. For Nirvana Realty, we developed a
+            brand grounded in purpose yet expansive in vision. With Today
+            Global, we engineered a brand that speaks the language of modernity
+            and scale, future-ready and rooted in trust.
+          </p>
+        </div>
+        <div className="portfolio-cta">
+          <FormModal buttonTitle="START A PROJECT" />{" "}
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const Hero = () => {
+const Hero = ({ triggerAnimation = false }) => {
   const sectionRef = useRef(null);
   const moonRef = useRef(null);
   const mergeRef = useRef(null);
@@ -15,88 +15,67 @@ const Hero = () => {
   const unstoppableWrapperRef = useRef(null);
 
   useEffect(() => {
+    if (!triggerAnimation) return; // 🚀 only animate after splash is done
+
+    gsap.fromTo(
+      sectionRef.current,
+      { autoAlpha: 0 }, // hidden
+      { autoAlpha: 1, duration: 1.2, ease: "power2.out" }
+    );
     if (typeof window === "undefined") return;
+
     ScrollTrigger.getAll().forEach((t) => t.kill());
 
     const isMobile = window.matchMedia("(max-width: 900px)").matches;
-
     const moonMove = isMobile ? -90 : -240;
     const overlayMove = isMobile ? -70 : -180;
     const unstoppableMove = isMobile ? 40 : 220;
     const heroTextSlow = isMobile ? 10 : 30;
 
-    const initAnimation = () => {
-      const ctx = gsap.context(() => {
-        gsap.fromTo(
-          [moonRef.current, mergeRef.current, overlayRef.current],
-          { y: 300 },
-          { y: 0, duration: 1.5, ease: "power3.out" }
-        );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        [moonRef.current, mergeRef.current, overlayRef.current],
+        { y: 300 },
+        { y: 0, duration: 1.5, ease: "power3.out" }
+      );
 
-        gsap.fromTo(
+      gsap.fromTo(
+        unstoppableWrapperRef.current,
+        { scale: 0.1, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.5, ease: "back.out(1.7)" }
+      );
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.7,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.to(
+        [moonRef.current, mergeRef.current],
+        { y: moonMove, ease: "none" },
+        0
+      )
+        .to(overlayRef.current, { y: overlayMove, ease: "none" }, 0)
+        .to(
           unstoppableWrapperRef.current,
-          { scale: 0.1, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 1.5, ease: "back.out(1.7)" }
-        );
-
-        gsap.set(
-          [
-            moonRef.current,
-            mergeRef.current,
-            overlayRef.current,
-            unstoppableWrapperRef.current,
-            heroTextRef.current,
-          ],
-          {
-            y: 0,
-          }
-        );
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.7,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        tl.to(
-          [moonRef.current, mergeRef.current],
-          { y: moonMove, ease: "none" },
+          { y: unstoppableMove, ease: "none" },
           0
         )
-          .to(overlayRef.current, { y: overlayMove, ease: "none" }, 0)
-          .to(
-            unstoppableWrapperRef.current,
-            { y: unstoppableMove, ease: "none" },
-            0
-          )
-          .to(heroTextRef.current, { y: heroTextSlow, ease: "none" }, 0);
+        .to(heroTextRef.current, { y: heroTextSlow, ease: "none" }, 0);
 
-        ScrollTrigger.refresh();
-      }, sectionRef);
-
-      return ctx;
-    };
-
-    const timeoutId = setTimeout(() => {
-      const ctx = initAnimation();
-
-      return () => {
-        clearTimeout(timeoutId);
-        ctx.revert();
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-      };
-    }, 100);
+      ScrollTrigger.refresh();
+    }, sectionRef);
 
     return () => {
-      clearTimeout(timeoutId);
+      ctx.revert();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
-
+  }, [triggerAnimation]);
   useEffect(() => {
     const handleResize = () => {
       ScrollTrigger.refresh();

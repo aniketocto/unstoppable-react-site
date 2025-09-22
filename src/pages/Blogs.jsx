@@ -2,8 +2,27 @@ import "../assets/css/blogs.css";
 import PageLayout from "../layouts/PageLayout";
 import { Link } from "react-router-dom";
 import { blogs } from "../utils/blogs";
+import { useEffect } from "react";
 
 const Blogs = () => {
+  useEffect(() => {
+    document.title =
+      "Branding & Strategy Blog by Mumbai’s Top Creative Agency";
+
+    const metaDesc = document.querySelector("meta[name='description']");
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Explore expert insights on branding, strategy, digital marketing, content, and design from Unstoppable creative agency in India. Stay inspired and informed."
+      );
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content =
+        "Explore expert insights on branding, strategy, digital marketing, content, and design from Unstoppable creative agency in India. Stay inspired and informed.";
+      document.head.appendChild(meta);
+    }
+  }, []);
   return (
     <PageLayout>
       {/* Header Section */}

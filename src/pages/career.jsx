@@ -5,8 +5,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import CareerForm from "../components/CareerForm";
+import { useEffect } from "react";
 
 const Career = () => {
+  useEffect(() => {
+    document.title = "Join Our Team | Careers at Unstoppable Creative Agency";
+
+    const metaDesc = document.querySelector("meta[name='description']");
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        "Leading creative agency with expertise in branding, strategy, social media marketing, lead generation, content, photoshoots, brand films, and UI/UX design. Want to work at the leading creative agency in Mumbai? Unstoppable Creative Agency is searching for talent like you! Apply now!ues.Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalog"
+      );
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content =
+        "Leading creative agency with expertise in branding, strategy, social media marketing, lead generation, content, photoshoots, brand films, and UI/UX design. Want to work at the leading creative agency in Mumbai? Unstoppable Creative Agency is searching for talent like you! Apply now!";
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
     <PageLayout>
       <section className="career-hero">
@@ -44,25 +63,25 @@ const Career = () => {
       </section>
 
       <CareerForm />
-      
-      <section class="career-cta">
-      <div class="career-container">
-        <h1>Work With Us. Grow With Us.</h1>
-        <p class="career-intro">
-          At <span class="highlight">Unstoppable</span>, your work will go
-          beyond campaigns – it will help shape brands, build legacies, and
-          leave a lasting mark.
-        </p>
 
-        <p class="apply-info">
-          To apply, send your CV and portfolio to
-          <a href="mailto:connect@getunstoppable.in"
-            >connect@getunstoppable.in</a
-          >
-          Let’s create, innovate, and grow together.
-        </p>
-      </div>
-    </section>
+      <section class="career-cta">
+        <div class="career-container">
+          <h1>Work With Us. Grow With Us.</h1>
+          <p class="career-intro">
+            At <span class="highlight">Unstoppable</span>, your work will go
+            beyond campaigns – it will help shape brands, build legacies, and
+            leave a lasting mark.
+          </p>
+
+          <p class="apply-info">
+            To apply, send your CV and portfolio to
+            <a href="mailto:connect@getunstoppable.in">
+              connect@getunstoppable.in
+            </a>
+            Let’s create, innovate, and grow together.
+          </p>
+        </div>
+      </section>
     </PageLayout>
   );
 };
