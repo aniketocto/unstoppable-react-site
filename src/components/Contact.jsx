@@ -132,9 +132,11 @@ const Contact = () => {
               className="cta-button"
               disabled={isSubmitting}
             >
-              <p className="uppercase">{isSubmitting ? "Submitting..." : "Fly me to the moon"}</p>
+              <p className="uppercase">
+                {isSubmitting ? "Submitting..." : "Fly me to the moon"}
+              </p>
               <img
-                src="images/rocket.webp"
+                src="/images/rocket.webp"
                 alt="CTA form under Know Your DNA section by Unstoppable Creative Agency."
                 width="25px"
               />
@@ -144,7 +146,7 @@ const Contact = () => {
       </div>
       <div class="form-img">
         <img
-          src="images/astro1.webp"
+          src="/images/astro1.webp"
           loading="lazy"
           width="749"
           height="440"

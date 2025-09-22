@@ -54,11 +54,13 @@ section.testimonials h2 {
 }
 
 .quotes {
-  width: 30px;
-  transform: scaleX(-1);
-  position: absolute;
-  top: 10px;
-  right: 6px;
+  width: 30px !important;
+  height: auto !important;
+  transform: scaleX(-1) !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 6px !important;
+  filter: grayscale(0) !important;
 }
 
 /* Image container */

@@ -160,7 +160,7 @@ const CareerForm = () => {
               {isSubmitting ? "Submitting..." : "Fly me to the moon"}
             </p>
             <img
-              src="images/rocket.webp"
+              src="/images/rocket.webp"
               alt="CTA form under Know Your DNA section by Unstoppable Creative Agency."
               width="25px"
             />

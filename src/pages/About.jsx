@@ -9,7 +9,7 @@ const About = () => {
     <PageLayout>
       {/* Banner & Intro */}
       <section className="about_banner-container">
-        <img src="images/Astronautimagenew.webp" alt="" />
+        <img src="/images/Astronautimagenew.webp" alt="" />
         <div className="main-heading">
           <h2>Unstoppable</h2>
           <div className="sub-head">
@@ -51,15 +51,15 @@ const About = () => {
             shine across the universe.
           </p>
         </div>
-        <img src="images/about-deco.png" id="about-deco-1" alt="" />
-        <img src="images/about-deco-2.webp" id="about-deco-2" alt="" />
-        {/* <img src="images/deco_2.webp" id="about-deco-3" alt="" /> */}
+        <img src="/images/about-deco.png" id="about-deco-1" alt="" />
+        <img src="/images/about-deco-2.webp" id="about-deco-2" alt="" />
+        {/* <img src="/images/deco_2.webp" id="about-deco-3" alt="" /> */}
       </section>
 
       {/* Purpose */}
       <section className="purpose-section">
         <img
-          src="images/aboutPurpose.webp"
+          src="/images/aboutPurpose.webp"
           id="purpose"
           alt="Floating astronaut image in Purpose section of Unstoppable Creative Agency."
         />
@@ -92,32 +92,31 @@ const About = () => {
             </div>
           </div>
         </div>
-        {/* <img src="images/main-deco.png" id="about-deco-4" alt="" /> */}
+        {/* <img src="/images/main-deco.png" id="about-deco-4" alt="" /> */}
       </section>
-      
 
       {/* Industry Presence */}
       <section className="industry-section">
         <h1 className="about-h1">Industry Presence</h1>
         <div className="industry-container">
           <div className="industry-box">
-            <img src="images/real-estate.svg" alt="real-estate" />
+            <img src="/images/real-estate.svg" alt="real-estate" />
             <p>real Estate</p>
           </div>
           <div className="industry-box">
-            <img src="images/hospitality.svg" alt="Hospitality" />
+            <img src="/images/hospitality.svg" alt="Hospitality" />
             <p>Hospitality</p>
           </div>
           <div className="industry-box">
-            <img src="images/bfsi.svg" alt="bfsi" />
+            <img src="/images/bfsi.svg" alt="bfsi" />
             <p>BSFI</p>
           </div>
           <div className="industry-box">
-            <img src="images/fmcg.svg" alt="fmcg" />
+            <img src="/images/fmcg.svg" alt="fmcg" />
             <p>FMCG</p>
           </div>
           <div className="industry-box">
-            <img src="images/healthcare.svg" alt="healthcare" />
+            <img src="/images/healthcare.svg" alt="healthcare" />
             <p>healthcare</p>
           </div>
         </div>
@@ -176,7 +175,7 @@ const About = () => {
         </div>
         <div className="the-founder_image">
           <img
-            src="images/r2.webp"
+            src="/images/r2.webp"
             style={{ filter: "grayscale(1)" }}
             alt="Founder image in the Founder section of Unstoppable Creative Agency."
           />

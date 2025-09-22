@@ -31,7 +31,7 @@ const Testimonials = () => {
                 <div className="card-content">
                   <div className="testimonial-text">
                     <img
-                      src="images/quotes.svg"
+                      src="/images/quotes.svg"
                       className="quotes"
                       alt="Testimonial"
                     />

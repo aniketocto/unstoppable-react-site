@@ -111,14 +111,14 @@ const Hero = () => {
       <div className="hero-content">
         <picture>
           <source
-            srcSet="images/mob-moon.webp 440w"
+            srcSet="/images/mob-moon.webp 440w"
             media="(max-width: 768px)"
             type="image/webp"
           />
           <img
             ref={moonRef}
-            src="images/brightMoon.webp"
-            srcSet="images/mob-moon.webp 440w, images/brightMoon.webp 1440w"
+            src="/images/brightMoon.webp"
+            srcSet="/images/mob-moon.webp 440w, /images/brightMoon.webp 1440w"
             sizes="(max-width: 900px) 100vw, 1440px"
             width="1440"
             height="353"
@@ -131,7 +131,7 @@ const Hero = () => {
         </picture>
 
         <div className="hero-text" id="hero-text" ref={heroTextRef}>
-          <img src="images/lens.webp" id="lens" alt="Lens Effect" />
+          <img src="/images/lens.webp" id="lens" alt="Lens Effect" />
           <div ref={unstoppableWrapperRef} className="unstoppable-wrapper">
             <p>Infinite Possibilities & Limitless Growth</p>
             <h2>UNSTOPPABLE</h2>
@@ -161,7 +161,7 @@ const Hero = () => {
               });
             }}
           >
-            <img src="images/dArrow.webp" alt="down arrow" />
+            <img src="/images/dArrow.webp" alt="down arrow" />
           </a>
         </div>
       </div>

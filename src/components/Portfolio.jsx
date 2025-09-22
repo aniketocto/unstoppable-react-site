@@ -65,7 +65,7 @@ const Portfolio = () => {
 
       {/* Floating Astronaut */}
       <div className="portfolio_model">
-        <img src="images/astronaut-2.webp" alt="" />
+        <img src="/images/astronaut-2.webp" alt="" />
       </div>
 
       <div className="rotation-btn">
@@ -92,11 +92,10 @@ const Portfolio = () => {
           engineered a brand that speaks the language of modernity and scale,
           future-ready and rooted in trust.
         </p>
-
       </div>
-        <div className="portfolio-cta">
-          <FormModal buttonTitle="START A PROJECT" />{" "}
-        </div>
+      <div className="portfolio-cta">
+        <FormModal buttonTitle="START A PROJECT" />{" "}
+      </div>
     </div>
   );
 };

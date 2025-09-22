@@ -72,14 +72,16 @@ const Expertize = () => {
           autoplay={{ delay: 3000 }}
         >
           {expertiseData.map((exp, index) => (
-            <SwiperSlide key={index}>
-              <div className="glass-card">
-                <img src={exp.imageSrc} alt={exp.alt} />
-                <p className="service-header">{exp.heading}</p>
-                {exp.isNew && <span className="new-experties">New</span>}
-                <p className="service-content">{exp.content}</p>
-              </div>
-            </SwiperSlide>
+            <>
+              <SwiperSlide key={index}>
+                <div className="glass-card">
+                  <img src={exp.imageSrc} alt={exp.alt} className="expImg" />
+                  <p className="service-header">{exp.heading}</p>
+                  {exp.isNew && <span className="new-experties">New</span>}
+                  <p className="service-content">{exp.content}</p>
+                </div>
+              </SwiperSlide>
+            </>
           ))}
         </Swiper>
       ) : (
@@ -98,15 +100,14 @@ const Expertize = () => {
             </div>
           ))}
           <img
-            src="images/deco_2.webp"
+            src="/images/deco_2.webp"
             alt="Satellite orbiting in space used by Unstoppable Creative Agency to depict expertise."
             className="decoImg1"
           />
-          <img src="images/deco_3.png" id="deco3" alt="" />
-
-          <FormModal buttonTitle="START A PROJECT" />
+          <img src="/images/deco_3.png" id="deco3" alt="" />
         </div>
       )}
+      <FormModal buttonTitle="START A PROJECT" />
     </section>
   );
 };

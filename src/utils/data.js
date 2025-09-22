@@ -1,6 +1,6 @@
 export const expertiseData = [
   {
-    imageSrc: "images/branding.svg",
+    imageSrc: "/images/branding.svg",
     alt: "Branding, Strategy & Identity",
     heading: "Branding, Strategy & Identity",
     content:
@@ -8,7 +8,7 @@ export const expertiseData = [
     isNew: false,
   },
   {
-    imageSrc: "images/design-comunication.svg",
+    imageSrc: "/images/design-comunication.svg",
     alt: "Design and Communication",
     heading: "Design & Communication",
     content:
@@ -16,7 +16,7 @@ export const expertiseData = [
     isNew: false,
   },
   {
-    imageSrc: "images/web-app.svg",
+    imageSrc: "/images/web-app.svg",
     alt: "Website and App Design and Development",
     heading: "Website and App Design + Development",
     content:
@@ -24,7 +24,7 @@ export const expertiseData = [
     isNew: false,
   },
   {
-    imageSrc: "images/Experiential-Marketing.svg",
+    imageSrc: "/images/Experiential-Marketing.svg",
     alt: "Experiential Marketing",
     heading: "Experiential Marketing",
     content:
@@ -32,7 +32,7 @@ export const expertiseData = [
     isNew: false,
   },
   {
-    imageSrc: "images/Video-Production.svg",
+    imageSrc: "/images/Video-Production.svg",
     alt: "Video Production",
     heading: "Video Production",
     content:
@@ -40,7 +40,7 @@ export const expertiseData = [
     isNew: false,
   },
   {
-    imageSrc: "images/Influencer-Marketing.svg",
+    imageSrc: "/images/Influencer-Marketing.svg",
     alt: "Influencer Marketing",
     heading: "Influencer Marketing",
     content:
@@ -48,7 +48,7 @@ export const expertiseData = [
     isNew: false,
   },
   {
-    imageSrc: "images/social-media.png",
+    imageSrc: "/images/social-media.png",
     alt: "Social Media",
     heading: "Social Media Management",
     content:
@@ -56,7 +56,7 @@ export const expertiseData = [
     isNew: true,
   },
   {
-    imageSrc: "images/lead-generation.png",
+    imageSrc: "/images/lead-generation.png",
     alt: "Lead Generation",
     heading: "Lead Generation",
     content:
@@ -67,52 +67,52 @@ export const expertiseData = [
 
 export const portfolioData = [
   {
-    img: "images/project0.webp",
+    img: "/images/project0.webp",
     link: "#",
     alt: "Sample Portfolio Project 0",
   },
   {
-    img: "images/project1.webp",
+    img: "/images/project1.webp",
     link: "",
     alt: "Sample Portfolio Project 1",
   },
   {
-    img: "images/project2.webp",
+    img: "/images/project2.webp",
     link: "https://www.behance.net/gallery/226831245/Rooted-To-You",
     alt: "Rooted To You – Branding Project",
   },
   {
-    img: "images/project3.webp",
+    img: "/images/project3.webp",
     link: "https://www.behance.net/gallery/227258277/My-Nirvana-Club",
     alt: "My Nirvana Club – Branding Project",
   },
   {
-    img: "images/project4.webp",
+    img: "/images/project4.webp",
     link: "https://www.behance.net/gallery/226847995/Nirvana-Realty-Har-Din-Chutti",
     alt: "Nirvana Realty – Har Din Chutti Campaign",
   },
   {
-    img: "images/project6.webp",
+    img: "/images/project6.webp",
     link: "",
     alt: "Sample Portfolio Project 6",
   },
   {
-    img: "images/project7.webp",
+    img: "/images/project7.webp",
     link: "",
     alt: "Sample Portfolio Project 7",
   },
   {
-    img: "images/project8.webp",
+    img: "/images/project8.webp",
     link: "",
     alt: "Sample Portfolio Project 8",
   },
   {
-    img: "images/project9.webp",
+    img: "/images/project9.webp",
     link: "",
     alt: "Sample Portfolio Project 9",
   },
   {
-    img: "images/project10.webp",
+    img: "/images/project10.webp",
     link: "",
     alt: "Sample Portfolio Project 10",
   },
@@ -120,35 +120,35 @@ export const portfolioData = [
 
 export const companyIcon = [
   {
-    imgsrc: "images/NR.png",
+    imgsrc: "/images/NR.png",
     alt: "NR",
   },
   {
-    imgsrc: "images/Ojaldevelopers.webp",
+    imgsrc: "/images/Ojaldevelopers.webp",
     alt: "Ojal developers",
   },
   {
-    imgsrc: "images/RootedLOGO.webp",
+    imgsrc: "/images/RootedLOGO.webp",
     alt: "Rooted",
   },
   {
-    imgsrc: "images/MNS.png",
+    imgsrc: "/images/MNS.png",
     alt: "MNS",
   },
   {
-    imgsrc: "images/Sundeck.png",
+    imgsrc: "/images/Sundeck.png",
     alt: "Sundeck",
   },
   {
-    imgsrc: "images/tGlobal.png",
+    imgsrc: "/images/tGlobal.png",
     alt: "tGlobal",
   },
   {
-    imgsrc: "images/aabo.png",
+    imgsrc: "/images/aabo.png",
     alt: "aabo",
   },
   {
-    imgsrc: "images/MNS.png",
+    imgsrc: "/images/MNS.png",
     alt: "MNS",
   },
 ];

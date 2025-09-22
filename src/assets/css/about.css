@@ -224,7 +224,7 @@ section.industry-section {
   border: 1px solid #ffffffa9;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 
-  background-image: url("images/industrybg.png");
+  background-image: url("/images/industrybg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -515,7 +515,7 @@ section.industry-section {
     display: none;
   }
   section.industry-section {
-    margin: 50px 0 ;
+    margin: 50px 0;
   }
   .industry-container {
     gap: 10px;
@@ -636,7 +636,7 @@ section.industry-section {
   .industry-box p {
     font-size: 14px;
   }
-  
+
   /* The Founder media query End */
 }
 

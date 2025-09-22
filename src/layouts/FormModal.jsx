@@ -1,4 +1,4 @@
-import { useState } from "react";
+  import { useState } from "react";
 import "../assets/css/formModal.css";
 import toast from "react-hot-toast";
 
@@ -88,7 +88,7 @@ const FormModal = ({ buttonTitle = "Open Form" }) => {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="fixed inset-0 z-50 flex items-center  justify-center bg-black/50">
           <div className="modal-form">
             <button onClick={() => setIsOpen(false)} className="form-close">
               ✕
@@ -193,7 +193,7 @@ const FormModal = ({ buttonTitle = "Open Form" }) => {
               >
                 <p>{isSubmitting ? "Submitting..." : "Submit"}</p>
                 <img
-                  src="images/rocket.webp"
+                  src="/images/rocket.webp"
                   alt="CTA form under Know Your DNA section by Unstoppable Creative Agency."
                   width="25px"
                 />

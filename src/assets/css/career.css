@@ -7,7 +7,7 @@
 .career-hero {
   margin: 10% auto 50px;
   width: 85%;
-  
+
   height: auto;
   color: #fff;
   text-align: center;
@@ -52,7 +52,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 
-  background-image: url("images/exp-bg.png");
+  background-image: url("/images/exp-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

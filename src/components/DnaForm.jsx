@@ -144,7 +144,7 @@ const DnaForm = () => {
           <button type="submit" className="cta-button" disabled={isSubmitting}>
             <p>{isSubmitting ? "Submitting..." : "GET STARTED NOW"}</p>
             <img
-              src="images/rocket.webp"
+              src="/images/rocket.webp"
               alt="CTA form under Know Your DNA section by Unstoppable Creative Agency."
               width="25px"
             />

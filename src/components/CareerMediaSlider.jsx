@@ -23,7 +23,7 @@ const CareerMediaSlider = () => {
         className="mySwiper swiper-slide"
       >
         <SwiperSlide>
-          <img src="images/carrer-4.jpeg" alt="Career" />
+          <img src="/images/carrer-4.jpeg" alt="Career" />
         </SwiperSlide>
         <SwiperSlide>
           <video src="video/carrer-1.mp4" muted autoPlay loop />
