@@ -22,20 +22,20 @@ const FloatingButtons = () => {
   }, []);
 
   return (
-    <div className="floating-buttons">
-      {/* <a href="tel:9833022443" className="floating-btn phone-btn">
-        <FaPhoneAlt />
-      </a> */}
-
-      <a
-        href="https://wa.me/919833022443"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="floating-btn whatsapp-btn"
-      >
-        <FaWhatsapp />
-      </a>
-    </div>
+    <>
+      {isVisible && (
+        <div className="floating-buttons">
+          <a
+            href="https://wa.me/919833022443?text=Hi%20there%2C%20I%20visited%20your%20website!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="floating-btn whatsapp-btn"
+          >
+            <FaWhatsapp />
+          </a>
+        </div>
+      )}
+    </>
   );
 };
 
