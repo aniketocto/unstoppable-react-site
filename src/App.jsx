@@ -12,27 +12,31 @@ import { Toaster } from "react-hot-toast";
 import Blogs from "./pages/Blogs";
 import BlogPage from "./pages/BlogPage";
 import ScrollTop from "./layouts/ScrollTop";
-import ScrollToTop from "./layouts/ScrollToTop";
+import EperientialMarketingAgency from "./pages/services/ExpertialMarketingAgency";
 import FloatingButtons from "./layouts/FloatingButtons";
-import { useState } from "react";
-import SplashScreen from "./layouts/SplashScreen";
+// import { useState } from "react";
+// import SplashScreen from "./layouts/SplashScreen";
 
 // App.jsx
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  // const [showSplash, setShowSplash] = useState(() => {
+  //   return !sessionStorage.getItem("splashShown");
+  // });
 
-  const handleSplashComplete = () => {
-    setShowSplash(false);
-  };
+  // const handleSplashComplete = () => {
+  //   setShowSplash(false);
+
+  //   sessionStorage.setItem("splashShown", "true");
+  // };
 
   return (
     <>
       {/* Splash screen overlay */}
-      {showSplash && (
+      {/* {showSplash && (
         <div className="fixed inset-0 z-50 bg-transparent">
           <SplashScreen onComplete={handleSplashComplete} />
         </div>
-      )}
+      )} */}
 
       {/* Main app always mounted */}
       <Router>
@@ -44,6 +48,12 @@ function App() {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:slug" element={<BlogPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
+
+          {/*  Hidden pages Routes */}
+          <Route
+            path="/services/experiential-marketing-agency"
+            element={<EperientialMarketingAgency />}
+          />
         </Routes>
         <Toaster
           toastOptions={{

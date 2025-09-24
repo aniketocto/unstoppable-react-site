@@ -36,13 +36,13 @@ const Hero = ({ triggerAnimation = false }) => {
       gsap.fromTo(
         [moonRef.current, mergeRef.current, overlayRef.current],
         { y: 300 },
-        { y: 0, duration: 1.5, ease: "power3.out" }
+        { y: 0, duration: 2.5, ease: "back.out(1.7)" }
       );
 
       gsap.fromTo(
         unstoppableWrapperRef.current,
-        { scale: 0.1, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.5, ease: "back.out(1.7)" }
+        { scale: 0.1, opacity: 1 },
+        { scale: 1, opacity: 1, duration: 2.5, ease: "back.out(1.7)" }
       );
 
       const tl = gsap.timeline({
