@@ -5,29 +5,63 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import CareerForm from "../components/CareerForm";
-import { useEffect } from "react";
-
+import { Helmet } from "react-helmet-async";
 const Career = () => {
-  useEffect(() => {
-    document.title = "Join Our Team | Careers at Unstoppable Creative Agency";
-
-    const metaDesc = document.querySelector("meta[name='description']");
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Leading creative agency with expertise in branding, strategy, social media marketing, lead generation, content, photoshoots, brand films, and UI/UX design. Want to work at the leading creative agency in Mumbai? Unstoppable Creative Agency is searching for talent like you! Apply now!ues.Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalog"
-      );
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content =
-        "Leading creative agency with expertise in branding, strategy, social media marketing, lead generation, content, photoshoots, brand films, and UI/UX design. Want to work at the leading creative agency in Mumbai? Unstoppable Creative Agency is searching for talent like you! Apply now!";
-      document.head.appendChild(meta);
-    }
-  }, []);
-
   return (
     <PageLayout>
+      {/* Meta data */}
+      <Helmet>
+        <title>Join Our Team | Careers at Unstoppable Creative Agency</title>
+        <meta
+          name="description"
+          content="Leading creative agency with expertise in branding, strategy, social media marketing, lead generation, content, photoshoots, brand films, and UI/UX design. Want to work at the leading creative agency in Mumbai? Unstoppable Creative Agency is searching for talent like you! Apply now!"
+        />
+        <meta name="robots" content="max-image-preview:large" />
+        <link rel="canonical" href="https://getunstoppable.in/careers" />
+
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: "Careers at Unstoppable Creative Agency",
+              url: "https://getunstoppable.in/careers",
+              description:
+                "Discover career opportunities at Unstoppable Creative Agency, a Mumbai-based creative firm. Join a collaborative team of designers, strategists, and innovators working on impactful, multi-industry projects.",
+              mainEntity: {
+                "@type": "Organization",
+                name: "Unstoppable Creative Agency",
+                url: "https://getunstoppable.in",
+                logo: "https://getunstoppable.in/images/logo.webp",
+                description:
+                  "Unstoppable is a Mumbai-based creative agency specialising in branding, design, strategy, and digital storytelling. We help brands scale through bold creativity and collaborative innovation.",
+                sameAs: [
+                  "https://www.facebook.com/getunstoppable/",
+                  "https://www.instagram.com/get_unstoppable/",
+                  "https://www.linkedin.com/company/getunstoppable/",
+                ],
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress:
+                    "B/50, 5th Floor, Off New Link Rd, Andheri West",
+                  addressLocality: "Mumbai",
+                  addressRegion: "Maharashtra",
+                  postalCode: "400053",
+                  addressCountry: "IN",
+                },
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  telephone: "+91-9833022443",
+                  email: "connect@getunstoppable.in",
+                  contactType: "hr",
+                },
+              },
+            }),
+          }}
+        />
+      </Helmet>
       <section className="career-hero">
         <h1>Why Build Your Career with Unstoppable?</h1>
 

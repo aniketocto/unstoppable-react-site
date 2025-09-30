@@ -24,10 +24,14 @@ const BlogPage = () => {
   if (!blog) return <h2>Blog not found</h2>;
 
   // Get 3 recent blogs excluding the current one
-  const recentBlogs = blogs.filter((b) => b.link !== blog.link).slice(0, 3);
+  const recentBlogs = blogs
+    .filter((b) => b.link !== blog.link)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 5);
 
   return (
     <PageLayout>
+     
       <section className="blog-container">
         <article className="mx-auto py-10 single-blog z-10">
           <ReactMarkdown>{content}</ReactMarkdown>
@@ -63,14 +67,14 @@ const BlogPage = () => {
           {/* Recent Blogs */}
           <div className="recent-blogs">
             {recentBlogs.map((recent, index) => (
-              <Link to={recent.link} key={index} className="recent-card">
-                <img
-                  src={`/${recent.image}`}
-                  alt={recent.title}
-                  className="recent-img"
-                />
+              <Link
+                to={recent.link}
+                key={index}
+                className="recent-card"
+                style={{ backgroundImage: `url(${recent.recentImage})` }}
+              >
                 <div className="recent-info">
-                  <h3 className="recent-title">{recent.title}</h3>
+                  <h3 className="recent-title opacity-0">{recent.title}</h3>
                   <p className="recent-date">{recent.date}</p>
                 </div>
               </Link>

@@ -124,7 +124,7 @@ const Footer = () => {
 
         <div className="menu-row">
           <h3>Quick Links</h3>
-          <Link to="/about">About Us</Link>
+          <Link to="/about-us">About Us</Link>
           <a href="#our-work" onClick={(e) => smoothScroll(e, "#our-work")}>
             Our Work
           </a>

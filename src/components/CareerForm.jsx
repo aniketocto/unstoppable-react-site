@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../assets/css/career.css";
 import CareerMediaSlider from "./CareerMediaSlider";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const CareerForm = () => {
   const [formData, setFormData] = useState({
     fname: "",
@@ -11,6 +12,7 @@ const CareerForm = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -64,7 +66,7 @@ const CareerForm = () => {
         }
       );
 
-      toast.success("Thank you, your application has been submitted!");
+      navigate("/thank-you");
       setFormData({ fname: "", email: "", phoneNumber: "", resume: null });
       e.target.reset();
     } catch (error) {

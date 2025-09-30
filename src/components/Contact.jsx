@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../assets/css/contact.css";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Contact = () => {
     contact: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -44,7 +46,7 @@ const Contact = () => {
         }
       );
 
-      toast.success("Thank you, we will get back to you!");
+      navigate("/thank-you");
       setFormData({ fname: "", email: "", contact: "", company: "" });
     } catch (error) {
       toast.error("Error submitting form. Please try again.");

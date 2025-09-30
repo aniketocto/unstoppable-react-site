@@ -3,29 +3,92 @@ import "../assets/css/about.css";
 import PageLayout from "../layouts/PageLayout";
 import Companies from "../components/Companies";
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
-  useEffect(() => {
-    document.title =
-      " Unstoppable Creative Agency | India’s Top Branding Agency";
-
-    const metaDesc = document.querySelector("meta[name='description']");
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalogues."
-      );
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content =
-        "Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalogues.";
-      document.head.appendChild(meta);
-    }
-  }, []);
   return (
     <PageLayout>
+      {/* Meta data */}
+      <Helmet>
+        <title>Unstoppable Creative Agency | India’s Top Branding Agency</title>
+        <meta
+          name="description"
+          content="Unstoppable is a Global Creative Agency specializing in Brand Identity and Strategy, Website Development, Content Development, Coffee Table Books, Brochures, Catalogues."
+        />
+        <meta name="robots" content="max-image-preview:large" />
+        <link rel="canonical" href="https://getunstoppable.in/about-us" />
+
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AboutPage",
+              name: "About Us - Unstoppable Creative Agency",
+              url: "https://getunstoppable.in/about", // ✅ match canonical
+              description:
+                "Learn more about Unstoppable Creative Agency, a creative agency in Mumbai that builds bold brands through strategy, storytelling, design, and digital innovation. Led by Deepika Hirwey, Unstoppable Creative Agency helps brands break through the ordinary.",
+              mainEntity: {
+                "@type": "Organization",
+                name: "Unstoppable Creative Agency",
+                alternateName: "Unstoppable",
+                url: "https://getunstoppable.in",
+                logo: "https://getunstoppable.in/images/logo.webp", // ✅ update with real path
+                founder: {
+                  "@type": "Person",
+                  name: "Deepika Hirwey",
+                  jobTitle: "Founder & Creative Director",
+                },
+                description:
+                  "Unstoppable Creative Agency is a Mumbai-based creative-first agency offering branding, storytelling, strategy, design, and digital marketing services. We launch businesses into new dimensions with bold, emotion-driven marketing.",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress:
+                    "B/50, 5th Floor, Off New Link Rd, Andheri West",
+                  addressLocality: "Mumbai",
+                  addressRegion: "Maharashtra",
+                  postalCode: "400053",
+                  addressCountry: "IN",
+                },
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  telephone: "+91-9833022443",
+                  email: "connect@getunstoppable.in",
+                  contactType: "customer support",
+                },
+                sameAs: [
+                  "https://www.facebook.com/getunstoppable/",
+                  "https://www.instagram.com/get_unstoppable/",
+                  "https://www.linkedin.com/company/getunstoppable/",
+                ],
+                foundingLocation: {
+                  "@type": "Place",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Mumbai",
+                    addressCountry: "IN",
+                  },
+                },
+                knowsAbout: [
+                  "Branding",
+                  "Storytelling",
+                  "Creative Strategy",
+                  "Website Design",
+                  "App Development",
+                  "Video Production",
+                  "Influencer Marketing",
+                  "Social Media Marketing",
+                  "Experiential Marketing",
+                  "Lead Generation",
+                ],
+                areaServed: "IN",
+              },
+            }),
+          }}
+        />
+      </Helmet>
+
       {/* Banner & Intro */}
       <section className="about_banner-container">
         <img src="/images/Astronautimagenew.webp" alt="" />

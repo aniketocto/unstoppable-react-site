@@ -1,0 +1,118 @@
+.thankyou-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  margin: 10% auto;
+  gap: 50px;
+  background: #0a0d17a7;
+  padding: 40px;
+  border-radius: 10px;
+  width: 80%;
+  height: 50vh;
+}
+
+.thankyou-container h1 {
+  font-size: 156px;
+  text-align: center;
+  color: #fff;
+  font-family: "nasalization", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.thankyou-container p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.thankyou-container button {
+  background: #e84343;
+  color: white;
+  border: none;
+  width: fit-content;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 400;
+  font-family: "SF Pro Display", sans-serif;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  z-index: 1;
+  font-size: large;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.neon-pulse {
+  border: 2px solid #e84343;
+  box-shadow: 0 0 10px rgba(255, 37, 37, 0.3);
+  overflow: visible;
+}
+
+.neon-pulse::before,
+.neon-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #e84343;
+  border-radius: inherit;
+  animation: pulseOut 2s ease-out infinite;
+  opacity: 0;
+}
+
+.neon-pulse::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulseOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .thankyou-container h1 {
+    font-size: 120px;
+  }
+  .thankyou-container p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .thankyou-container h1 {
+    font-size: 90px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .thankyou-container {
+    margin-top: 35%;
+  }
+  .thankyou-container p {
+    font-size: 23px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .thankyou-container h1 {
+    font-size: 65px;
+  }
+  .thankyou-container p {
+    font-size: 20px;
+  }
+}

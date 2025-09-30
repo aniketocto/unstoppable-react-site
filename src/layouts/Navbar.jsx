@@ -16,37 +16,43 @@ const Navbar = () => {
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
-  let lastScrollY = window.scrollY;
-  let hideTimeout;
+    let lastScrollY = window.scrollY;
+    let hideTimeout;
 
-  const handleScroll = () => {
-    if (window.scrollY > lastScrollY) {
-      // scrolling down → hide immediately
-      setIsHidden(true);
-    } else {
-      // scrolling up → show first
-      setIsHidden(false);
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        // At the very top → always show
+        setIsHidden(false);
+        if (hideTimeout) clearTimeout(hideTimeout);
+        return;
+      }
 
-      // clear any old timer
-      if (hideTimeout) clearTimeout(hideTimeout);
-
-      // auto-hide after 3s
-      hideTimeout = setTimeout(() => {
+      if (window.scrollY > lastScrollY) {
+        // scrolling down → hide immediately
         setIsHidden(true);
-      }, 3000);
-    }
+      } else {
+        // scrolling up → show first
+        setIsHidden(false);
 
-    lastScrollY = window.scrollY;
-  };
+        // clear any old timer
+        if (hideTimeout) clearTimeout(hideTimeout);
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
+        // auto-hide after 3s
+        hideTimeout = setTimeout(() => {
+          setIsHidden(true);
+        }, 3000);
+      }
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-    if (hideTimeout) clearTimeout(hideTimeout);
-  };
-}, []);
+      lastScrollY = window.scrollY;
+    };
 
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (hideTimeout) clearTimeout(hideTimeout);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -67,7 +73,7 @@ const Navbar = () => {
     };
 
     const handlePlay = () => {
-      localStorage.removeItem("userPaused"); 
+      localStorage.removeItem("userPaused");
     };
 
     audio.addEventListener("pause", handlePause);
@@ -119,7 +125,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink to="/about" className="nav-item">
+            <NavLink to="/about-us" className="nav-item">
               {({ isActive }) => (
                 <>
                   <span className={`text ${isActive ? "active" : ""}`}>
@@ -226,7 +232,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="/about"
+            to="/about-us"
             className="nav-item"
             onClick={() => setIsMenuOpen(false)}
           >

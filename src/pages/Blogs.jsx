@@ -2,29 +2,79 @@ import "../assets/css/blogs.css";
 import PageLayout from "../layouts/PageLayout";
 import { Link } from "react-router-dom";
 import { blogs } from "../utils/blogs";
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
-  useEffect(() => {
-    document.title =
-      "Branding & Strategy Blog by Mumbai’s Top Creative Agency";
-
-    const metaDesc = document.querySelector("meta[name='description']");
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Explore expert insights on branding, strategy, digital marketing, content, and design from Unstoppable creative agency in India. Stay inspired and informed."
-      );
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content =
-        "Explore expert insights on branding, strategy, digital marketing, content, and design from Unstoppable creative agency in India. Stay inspired and informed.";
-      document.head.appendChild(meta);
-    }
-  }, []);
   return (
     <PageLayout>
+      <Helmet>
+        <title>Branding & Strategy Blog by Mumbai’s Top Creative Agency</title>
+        <meta
+          name="description"
+          content="Explore expert insights on branding, strategy, digital marketing, content, and design from Unstoppable Creative Agency in India. Stay inspired and informed."
+        />
+        <meta name="robots" content="max-image-preview:large" />
+        <link rel="canonical" href="https://getunstoppable.in/blogs" />
+
+        {/* OpenGraph for social sharing */}
+        <meta
+          property="og:title"
+          content="Branding & Strategy Blog by Mumbai’s Top Creative Agency"
+        />
+        <meta
+          property="og:description"
+          content="Explore creative insights, brand strategy, and marketing trends from Unstoppable Creative Agency."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://getunstoppable.in/blogs" />
+        <meta
+          property="og:image"
+          content="https://getunstoppable.in/images/logo.webp"
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Branding & Strategy Blog by Mumbai’s Top Creative Agency"
+        />
+        <meta
+          name="twitter:description"
+          content="Stay inspired with insights on branding, marketing, and digital innovation from Unstoppable Creative Agency."
+        />
+        <meta
+          name="twitter:image"
+          content="https://getunstoppable.in/images/logo.webp"
+        />
+
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              name: "Unstoppable Creative Agency Blog",
+              url: "https://getunstoppable.in/blogs",
+              description:
+                "Explore creative insights, brand strategy, and marketing trends from Unstoppable Creative Agency. Stay inspired with content that fuels innovation and growth.",
+              publisher: {
+                "@type": "Organization",
+                name: "Unstoppable Creative Agency",
+                url: "https://getunstoppable.in",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://getunstoppable.in/images/logo.webp", // ✅ update with real path
+                },
+              },
+              author: {
+                "@type": "Organization",
+                name: "Unstoppable Creative Agency",
+              },
+            }),
+          }}
+        />
+      </Helmet>
       {/* Header Section */}
       <div className="new-blog_header">
         <h1>LOst in The AdveRtisinG MultiVerse?</h1>
@@ -34,7 +84,6 @@ const Blogs = () => {
           <source src="/video/BB3.webm" type="video/webm" />
         </video>
       </div>
-
       {/* Blog Grid Section */}
       <section className="blog-grid">
         {blogs.map((blog, index) => (

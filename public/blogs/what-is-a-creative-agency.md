@@ -1,6 +1,6 @@
 # What is a Creative Agency?
 
-![Creative Agency](/assets/image/blog-8.webp)
+![Creative Agency](/images/blogs-img/blog-8.webp)
 
 In today’s fast-paced digital world, where brands are competing for attention across every platform, the role of a creative agency has never been more important. But what is a creative agency exactly, and why do so many businesses rely on them to shape their success? At its core, a creative agency is a partner that brings together strategy, design, technology, and storytelling to help businesses communicate their value and connect meaningfully with audiences.
 
