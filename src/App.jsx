@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -18,6 +19,14 @@ import EperientialMarketingAgency from "./pages/services/ExpertialMarketingAgenc
 import FloatingButtons from "./layouts/FloatingButtons";
 import Privacy from "./pages/Privacy";
 import Thank from "./pages/Thank";
+import { useEffect } from "react";
+
+import {
+  initGTM,
+  initMixpanel,
+  initGA,
+  trackPageView,
+} from "./utils/tracking.js";
 // import { useState } from "react";
 // import SplashScreen from "./layouts/SplashScreen";
 
@@ -33,6 +42,14 @@ function App() {
   //   sessionStorage.setItem("splashShown", "true");
   // };
 
+  useEffect(() => {
+    if (import.meta.env.PROD) {
+      initGTM(import.meta.env.VITE_GTM_ID);
+      initMixpanel(import.meta.env.VITE_MIXPANEL_TOKEN);
+      initGA(import.meta.env.VITE_GA_MEASUREMENT_ID);
+    }
+  }, []);
+
   return (
     <>
       {/* Splash screen overlay */}
@@ -46,6 +63,7 @@ function App() {
       <HelmetProvider>
         <Router>
           <ScrollTop />
+          <RouteListener />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<About />} />
@@ -77,3 +95,15 @@ function App() {
 }
 
 export default App;
+
+const RouteListener = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      trackPageView({ pathname: location.pathname, search: location.search });
+    }, 50);
+  }, [location]);
+
+  return null; // no UI
+};
