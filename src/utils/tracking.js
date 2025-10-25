@@ -1,3 +1,30 @@
+// src/utils/tracking.js
+// ----------------------------------------------------
+// ✅ Load order: Clarity → GTM → GA → Mixpanel
+// ----------------------------------------------------
+
+/** ---------- MICROSOFT CLARITY ---------- **/
+export const initClarity = (clarityId) => {
+  if (!clarityId) return;
+  if (window.clarity) return;
+
+  (function (c, l, a, r, i, t, y) {
+    c[a] =
+      c[a] ||
+      function () {
+        (c[a].q = c[a].q || []).push(arguments);
+      };
+    t = l.createElement(r);
+    t.async = 1;
+    t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0];
+    y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", clarityId);
+
+  console.log("[Tracking] Microsoft Clarity initialized");
+};
+
+/** ---------- GOOGLE TAG MANAGER ---------- **/
 export const initGTM = (gtmId) => {
   if (!gtmId) return;
   if (document.querySelector(`#gtm-script-${gtmId}`)) return;
@@ -12,17 +39,47 @@ export const initGTM = (gtmId) => {
     })(window,document,'script','dataLayer','${gtmId}');`;
   document.head.appendChild(script);
 
-  // Insert the GTM noscript iframe (recommended in <body>)
+  // Insert GTM noscript in <body>
   const noscriptId = `gtm-noscript-${gtmId}`;
   if (!document.getElementById(noscriptId)) {
     const nos = document.createElement("noscript");
     nos.id = noscriptId;
     nos.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
-    // append to body
     document.body.insertBefore(nos, document.body.firstChild);
   }
+
+  console.log("[Tracking] Google Tag Manager initialized");
 };
 
+/** ---------- GOOGLE ANALYTICS ---------- **/
+export const initGA = (measurementId) => {
+  if (!measurementId) return;
+  if (window.gtag) return;
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+
+  const s1 = document.createElement("script");
+  s1.async = true;
+  s1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+  document.head.appendChild(s1);
+
+  const s2 = document.createElement("script");
+  s2.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${measurementId}', { send_page_view: false });
+  `;
+  document.head.appendChild(s2);
+
+  console.log("[Tracking] Google Analytics initialized");
+};
+
+/** ---------- MIXPANEL ---------- **/
 export const initMixpanel = (token) => {
   if (!token) return;
   if (window.mixpanel && window.mixpanel.__loaded) return;
@@ -75,57 +132,36 @@ export const initMixpanel = (token) => {
     record_heatmap_data: true,
   });
 
+  // Example tracking event
+  window.mixpanel.track("Video play", {
+    genre: "hip-hop",
+    "duration in seconds": 42,
+  });
+
   window.mixpanel.__loaded = true;
+  console.log("[Tracking] Mixpanel initialized");
 };
 
-export const initGA = (measurementId) => {
-  if (!measurementId) return;
-  if (window.gtag) return;
-
-  // dataLayer
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    window.dataLayer.push(arguments);
-  }
-  window.gtag = gtag;
-
-  // gtag script
-  const s1 = document.createElement("script");
-  s1.async = true;
-  s1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  document.head.appendChild(s1);
-
-  const s2 = document.createElement("script");
-  s2.innerHTML = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${measurementId}', { send_page_view: false }); // we'll send page_view manually
-  `;
-  document.head.appendChild(s2);
-};
-
+/** ---------- PAGE VIEW / EVENT HELPERS ---------- **/
 export const trackPageView = ({ pathname, search = "" } = {}) => {
   const page_path = pathname + (search || "");
-  // GA
+
   if (window.gtag) {
     try {
-      window.gtag("event", "page_view", {
-        page_path,
-      });
+      window.gtag("event", "page_view", { page_path });
     } catch (e) {
-      console.error(e);
+      console.error("GA page_view tracking error:", e);
     }
   }
-  // Mixpanel
+
   if (window.mixpanel && window.mixpanel.track) {
     try {
       window.mixpanel.track("Page view", { path: page_path });
     } catch (e) {
-      console.error(e);
+      console.error("Mixpanel page_view tracking error:", e);
     }
   }
-  // GTM (push to dataLayer)
+
   if (window.dataLayer) {
     window.dataLayer.push({ event: "page_view", page_path });
   }

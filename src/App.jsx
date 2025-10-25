@@ -26,6 +26,7 @@ import {
   initMixpanel,
   initGA,
   trackPageView,
+  initClarity,
 } from "./utils/tracking.js";
 // import { useState } from "react";
 // import SplashScreen from "./layouts/SplashScreen";
@@ -44,9 +45,10 @@ function App() {
 
   useEffect(() => {
     if (import.meta.env.PROD) {
+      initClarity(import.meta.env.VITE_CLARITY_ID);
       initGTM(import.meta.env.VITE_GTM_ID);
-      initMixpanel(import.meta.env.VITE_MIXPANEL_TOKEN);
       initGA(import.meta.env.VITE_GA_MEASUREMENT_ID);
+      initMixpanel(import.meta.env.VITE_MIXPANEL_TOKEN);
     }
   }, []);
 
