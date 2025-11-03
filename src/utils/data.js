@@ -120,72 +120,112 @@ export const portfolioData = [
 
 export const companyIcon = [
   {
-    imgsrc: "/images/NR.png",
-    alt: "NR",
-  },
-  {
-    imgsrc: "/images/Ojaldevelopers.webp",
+    imgsrc: "/images_1/logo1.png",
     alt: "Ojal developers",
   },
   {
-    imgsrc: "/images/RootedLOGO.webp",
+    imgsrc: "/images_1/logo2.png",
     alt: "Rooted",
   },
   {
-    imgsrc: "/images/MNS.png",
+    imgsrc: "/images_1/logo3.png",
     alt: "MNS",
   },
   {
-    imgsrc: "/images/Sundeck.png",
+    imgsrc: "/images_1/logo4.png",
     alt: "Sundeck",
   },
   {
-    imgsrc: "/images/tGlobal.png",
+    imgsrc: "/images_1/logo5.png",
     alt: "tGlobal",
   },
   {
-    imgsrc: "/images/aabo.png",
+    imgsrc: "/images_1/logo6.png",
     alt: "aabo",
   },
   {
-    imgsrc: "/images/MNS.png",
+    imgsrc: "/images_1/logo7.png",
+    alt: "MNS",
+  },
+  {
+    imgsrc: "/images_1/logo1.png",
+    alt: "Ojal developers",
+  },
+  {
+    imgsrc: "/images_1/logo2.png",
+    alt: "Rooted",
+  },
+  {
+    imgsrc: "/images_1/logo3.png",
+    alt: "MNS",
+  },
+  {
+    imgsrc: "/images_1/logo4.png",
+    alt: "Sundeck",
+  },
+  {
+    imgsrc: "/images_1/logo5.png",
+    alt: "tGlobal",
+  },
+  {
+    imgsrc: "/images_1/logo6.png",
+    alt: "aabo",
+  },
+  {
+    imgsrc: "/images_1/logo7.png",
     alt: "MNS",
   },
 ];
 
 export const testimonialData = [
   {
-    placeholder: "A",
-    quote: `It has been a wonderful experience working with Deepika and
-    her team. We have been working on multiple projects with
-    multiple changes and improvements. These guys have not
-    failed to deliver on their promises. I would surely
-    recommend them to other businesses. Thanks team Unstoppable.`,
-    author: "~Advait Golatkar",
+    imgSrc: "images_1/testmonial1.png",
+    quote: `Their team understood our vision better than we could articulate it. The branding not only elevated our image but gave our startup the confidence to scale, Their team understood our vision better than we could articulate it. The branding not only elevated our image but gave our startup the confidence to scale`,
+    author: "Ronin Mehta",
+    designation: "Co-founder, MD & CEO, TedX Speaker",
+    growth: "64%",
+    retention: "86%",
   },
   {
-    placeholder: "P",
+    imgSrc: "images_1/testmonial1.png",
+    quote: `Their team understood our vision better than we could articulate it. The branding not only elevated our image but gave our startup the confidence to scale, Their team understood our vision better than we could articulate it. The branding not only elevated our image but gave our startup the confidence to scale`,
+    author: "Ronin Mehta",
+    designation: "Co-founder, MD & CEO, TedX Speaker",
+    growth: "64%",
+    retention: "86%",
+  },
+  {
+    imgSrc: "images_1/testmonial1.png",
     quote: `I have been working with this agency for more than 3 years
     now and she's the best in the industry. She always
     comes up with innovative ways to do the shoots and I highly
     recommend her agency!`,
     author: "~Pratik Kharat",
+    designation: "Co-founder, MD & CEO, TedX Speaker",
+    growth: "64%",
+    retention: "86%",
   },
   {
-    placeholder: "A",
+    imgSrc: "images_1/testmonial1.png",
     quote: `Honestly, working with Unstoppable Creative Agency was the
     best decision we made for our brand. Right from the logo to
     our social media presence, they handled everything so
     smoothly. The team is super friendly, always available, and
     full of creative ideas.`,
     author: "~Aayushi Sharma",
+    designation: "Co-founder, MD & CEO, TedX Speaker",
+    growth: "64%",
+    retention: "86%",
   },
   {
-    placeholder: "A",
+    imgSrc: "images_1/testmonial1.png",
     quote: `Very professional and easy to work with. They delivered
     everything on time and the quality was top-class. Totally
     worth it!`,
     author: "~Ankur Jain",
+    designation: "Co-founder, MD & CEO, TedX Speaker",
+    growth: "64%",
+    retention: "86%",
   },
 ];
 

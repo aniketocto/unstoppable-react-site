@@ -1,0 +1,44 @@
+section.service-section {
+  background-color: #030303;
+  padding: 50px 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section.service-section h1.service-heading {
+  font-size: 76px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+
+  position: relative;
+}
+
+section.service-section h1.service-heading span {
+  color: var(--secondary-color);
+}
+
+section.service-section p.service-text {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 400;
+  text-align: center;
+  line-height: normal;
+  width: 45%;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  margin-top: 60px;
+}

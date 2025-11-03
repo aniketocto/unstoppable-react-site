@@ -205,17 +205,16 @@
   border-radius: 10px;
 }
 
-.swiper-slide img,
+/* .swiper-slide img,
 .swiper-slide video {
   width: 90%;
   height: 650px;
   object-fit: cover;
-  /* Adjust the object-fit to cover */
   display: block;
   border-radius: 10px;
   z-index: 3;
   filter: grayscale(1);
-}
+} */
 /* ---------- */
 
 .career-cta {

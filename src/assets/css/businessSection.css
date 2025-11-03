@@ -1,0 +1,74 @@
+section.banner {
+  background-color: #fff;
+  padding: 50px 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section.banner h1.banner-heading {
+  font-size: 76px;
+  color: #000;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+section.banner h1.banner-heading span {
+  color: var(--secondary-color);
+}
+
+section.banner p.banner-text {
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 20px;
+  font-weight: 400;
+  text-align: center;
+  line-height: normal;
+  width: 35%;
+}
+
+@media screen and (max-width: 1440px) {
+  section.banner h1.banner-heading {
+    font-size: 60px;
+  }
+  section.banner p.banner-text {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  section.banner p.banner-text {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  section.banner {
+    padding: 50px 80px;
+  }
+
+  section.banner h1.banner-heading {
+    font-size: 50px;
+  }
+  section.banner p.banner-text {
+    width: 80%;
+    /* font-size: 20px; */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  section.banner {
+    padding: 50px 20px;
+  }
+  section.banner h1.banner-heading {
+    font-size: 30px;
+  }
+  section.banner p.banner-text {
+    width: 80%;
+    font-size: 20px;
+  }
+}

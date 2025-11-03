@@ -1,0 +1,167 @@
+:root {
+  --bg: #030303;
+  --card-radius: 14px;
+  --card-height: 360px; /* adjust for taller/shorter panorama */
+  --card-width: 640px; /* slide width */
+}
+
+/* outer container */
+.carousel-wrap {
+  position: relative;
+  width: 100%;
+  padding: 48px 0;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* stage keeps the mask aligned with content */
+.carousel-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+/* cinematic mask: top & bottom semi-circular arcs */
+.carousel-wrap::before,
+.carousel-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 110px; /* thickness of top/bottom mask — adjust */
+  pointer-events: none;
+  z-index: 10;
+  background: #030303;
+}
+
+/* top curved band: inward bowing */
+.carousel-wrap::before {
+  top: 0;
+  transform-origin: center top;
+  /* make it look like a semicircular lens cut-in */
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 40%;
+  /* optionally tweak shape with scaleX for wider/narrower bow */
+  /* transform: scaleX(1.02); */
+}
+
+/* bottom curved band — mirror of the top */
+.carousel-wrap::after {
+  bottom: 0;
+  transform-origin: center bottom;
+  border-top-left-radius: 50% 40%;
+  border-top-right-radius: 50% 40%;
+}
+
+/* bring swiper content visually below mask (but above bg) */
+.carousel-swiper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+/* card (single slide visual) */
+.ba-card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.12)
+  );
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* image area */
+.ba-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ba-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+
+/* simple hover lift for active card */
+.swiper-slide-active .ba-card,
+.ba-card:hover {
+  transform: translateY(-6px);
+  transition: transform 0.28s ease;
+}
+
+/* subtle parallax scale on hover */
+.swiper-slide-active .ba-media img {
+  transform: scale(1.04);
+}
+
+/* info strip (title) */
+.ba-info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+.ba-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px 10px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* responsive tweaks */
+@media (max-width: 1100px) {
+  :root {
+    --card-width: 520px;
+    --card-height: 300px;
+  }
+  .carousel-wrap::before,
+  .carousel-wrap::after {
+    height: 90px;
+  }
+}
+@media (max-width: 720px) {
+  :root {
+    --card-width: 360px;
+    --card-height: 220px;
+  }
+  .carousel-wrap {
+    padding: 28px 0;
+  }
+  .carousel-wrap::before,
+  .carousel-wrap::after {
+    height: 64px;
+  }
+  .ba-title {
+    font-size: 0.95rem;
+    left: 12px;
+    bottom: 12px;
+  }
+}

@@ -11,11 +11,15 @@ import FAQAccordion from "../components/FAQAccordion";
 import Contact from "../components/Contact";
 import Marquee from "react-fast-marquee";
 import { Helmet } from "react-helmet-async";
+import BusinessSection from "../components/BusinessSection";
+import GrowthSection from "../components/GrowthSection";
+import CaseStudies from "../components/CaseStudies";
+import ServiceSection from "../components/ServiceSection";
+import SectionSnap from "../components/SectionSnap";
 
 const Home = () => {
   return (
     <PageLayout>
-      ;
       <Helmet>
         <title>Unstoppable Creative Agency in Mumbai</title>
         <meta
@@ -73,8 +77,32 @@ const Home = () => {
           }}
         />
       </Helmet>
-      <Hero triggerAnimation={true} />
-      <DnaForm />
+      <Hero />
+      <BusinessSection />
+      <Marquee
+        className="h-fit relative z-10"
+        speed={55}
+        gradient={false}
+        pauseOnHover={true}
+      >
+        <Companies />
+      </Marquee>
+      <div className="bg-white h-14"></div>
+      <Marquee
+        className="h-fit relative z-10"
+        speed={55}
+        gradient={false}
+        direction="right"
+        pauseOnHover={true}
+      >
+        <Companies />
+      </Marquee>
+      <div className="bg-white h-[50px]"></div>
+      <SectionSnap />
+      <GrowthSection />
+      {/* <CaseStudies /> */}
+      <ServiceSection />
+      {/*  <DnaForm />
       <Marquee className="h-14 bg-white relative z-10">
         <MarqueText />
         <MarqueText />
@@ -87,9 +115,9 @@ const Home = () => {
       <Marquee className="h-fit relative z-10" speed={50} gradient={false}>
         <Companies />
       </Marquee>
-      <Testimonials />
       <Contact />
-      <FAQAccordion />
+      <FAQAccordion /> */}
+      <Testimonials />
     </PageLayout>
   );
 };

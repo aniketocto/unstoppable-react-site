@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 import "../assets/css/header.css";
 import { FaXmark } from "react-icons/fa6";
 import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const audioRef = useRef(null);
-  const playPauseBtnRef = useRef(null);
   const navigate = useNavigate();
 
   const [isHidden, setIsHidden] = useState(false);
@@ -58,33 +55,6 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const userPaused = localStorage.getItem("userPaused");
-
-    if (!userPaused) {
-      audio.play().catch(() => {});
-    }
-
-    const handlePause = () => {
-      localStorage.setItem("userPaused", "true");
-    };
-
-    const handlePlay = () => {
-      localStorage.removeItem("userPaused");
-    };
-
-    audio.addEventListener("pause", handlePause);
-    audio.addEventListener("play", handlePlay);
-
-    return () => {
-      audio.removeEventListener("pause", handlePause);
-      audio.removeEventListener("play", handlePlay);
-    };
-  }, []);
-
   const smoothScroll = (target) => {
     navigate("/");
     setIsMenuOpen(false);
@@ -102,7 +72,7 @@ const Navbar = () => {
       <nav className="navbar">
         <Link to="/">
           <img
-            src="/images/Logo.webp"
+            src="/images_1/usp_logo.png"
             alt="Unstoppable Creative Agency logo in bold modern font."
             className="logo"
             width={250}
@@ -174,32 +144,12 @@ const Navbar = () => {
 
         <div className="navbar-right">
           <a className="nav-cta" href="tel:9833022443">
-            <img
-              src="/images/btncta.webp"
-              width="21"
-              height="20"
-              alt="CTA button with Strategy, Creativity, Impact by Unstoppable Creative Agency."
-            />
-            9833022443
+            Login
           </a>
-          <div
-            ref={playPauseBtnRef}
-            id="playPauseBtn"
-            className={isAudioPlaying ? "playing" : "paused"}
-            onClick={() => {
-              const audio = audioRef.current;
-              if (!audio) return;
-              if (audio.paused) {
-                audio.play();
-              } else {
-                audio.pause();
-              }
-            }}
-          >
-            <div className="bar bar1"></div>
-            <div className="bar bar2"></div>
-            <div className="bar bar3"></div>
-          </div>
+          <a className="nav-cta" style={{backgroundColor: "#AF0300"}} href="tel:9833022443">
+            Register
+            <FaUser />
+          </a>
           <div className="toggle_btn" onClick={toggleMenu}>
             {isMenuOpen ? (
               <FaXmark className="menu-bar" />
@@ -209,16 +159,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-
-      <audio
-        ref={audioRef}
-        preload="none"
-        loop
-        onPlay={() => setIsAudioPlaying(true)}
-        onPause={() => setIsAudioPlaying(false)}
-      >
-        <source src="/audio/femaleAudio.mp3" type="audio/mpeg" />
-      </audio>
 
       <div className={`dropdown-menu ${isMenuOpen ? "active" : ""}`}>
         <li>

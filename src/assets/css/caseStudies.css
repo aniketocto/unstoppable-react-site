@@ -1,0 +1,90 @@
+section.case_study-section {
+  background-color: #030303;
+  padding: 50px 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: relative;
+}
+
+section.case_study-section h1.case_study-heading {
+  font-size: 72px;
+
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+
+  position: relative;
+}
+
+section.case_study-section h1.case_study-heading span {
+  color: var(--secondary-color);
+}
+
+section.case_study-section p.case_study-text {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 400;
+  text-align: center;
+  line-height: normal;
+
+  width: 65%;
+}
+
+/* make transforms smoother and optimized */
+button.cta-interact {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  outline: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 25px;
+
+  /* visual & interaction */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none; /* important for pointer/touch handling */
+
+  position: absolute;
+  top: -20px;
+  right: -40px;
+
+  /* start rotation */
+  transform: rotate(10deg);
+
+  /* let GSAP handle movement; keep transition only for non-drag fallback */
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+/* disable CSS transition while actively dragging so gsap.set is instant */
+button.cta-interact.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+/* optional: a subtle shadow while dragging */
+button.cta-interact.dragging {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* keep layout stable */
+section.case_study-section h1.case_study-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px; /* so button doesn't overlap text badly */
+  justify-content: center;
+  position: relative;
+}

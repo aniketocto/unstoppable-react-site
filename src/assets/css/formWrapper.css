@@ -1,0 +1,73 @@
+.form-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  padding: 0px 40px;
+  position: relative;
+  width: 400px;
+}
+
+.form-wrapper .form-heading {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  width: 100%;
+}
+
+.form-wrapper .form-heading .let-s-build-what-s {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: left;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.form-wrapper .form-heading .let-s-build-what-s .text-wrapper-2 {
+  color: var(--secondary-color);
+  font-family: var(--font-display) !important;
+}
+
+.form-wrapper .form-heading .label-text {
+  color: #ffffff;
+  font-family: "SF Pro Display-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.28px;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+.form-wrapper div.form {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (max-width: 1100px) {
+  .form-wrapper {
+    padding: 30px 0 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .form-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+}

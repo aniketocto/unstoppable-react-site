@@ -1,0 +1,141 @@
+.main_snap_container {
+  background-color: #030303;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden; /* keep outer container fixed */
+  position: relative;
+}
+.snap_scroll {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden; /* disable native scroll */
+  scroll-snap-type: y mandatory; /* still helpful for layout */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* each snap section */
+.snap_section {
+  scroll-snap-align: start;
+  min-height: 100vh; /* ensures it always fills viewport */
+  height: 100dvh; /* use dynamic vh on mobile where supported */
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* image covering background */
+.snap_section img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.img-animate {
+  will-change: transform, opacity;
+  /* ensure transforms look right when scaling */
+  transform-origin: center top;
+  backface-visibility: hidden;
+}
+
+/* video should pop from bottom */
+.img-animate.from-bottom {
+  transform-origin: center bottom;
+}
+
+/* content sits above image */
+.snap_section > * {
+  z-index: 2;
+}
+
+/* headings + text (example styles) */
+.snap_container_1 h1.snap_container_1-heading {
+  font-size: 76px;
+  color: #fff;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  line-height: 0.9;
+  text-align: center;
+  z-index: 2;
+}
+
+.snap_container_1 h1 span {
+  color: var(--secondary-color);
+}
+
+.snap_container_1 p.snap_container_1-text {
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.2;
+  width: 45%;
+  z-index: 2;
+}
+
+.snap_container_2 p.snap_container_2-text,
+.snap_container_2 p.snap_container_2-text-2 {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  width: 60%;
+  z-index: 2;
+}
+.snap_container_2 p.snap_container_2-text {
+  font-weight: 500;
+}
+/* CTA cursor */
+.cta-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.02);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transform-origin: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  scale: 0.6;
+  transition: transform 0.12s ease;
+}
+
+/* optional: hide custom cursor on small touch devices */
+@media (pointer: coarse) {
+  .cta-cursor {
+    display: none;
+  }
+}
+
+/* small responsive tweaks */
+@media (max-width: 900px) {
+  .snap_container_1 h1.snap_container_1-heading {
+    font-size: 36px;
+    width: 90%;
+  }
+  .snap_container_1 p.snap_container_1-text {
+    width: 85%;
+    font-size: 18px;
+  }
+}
