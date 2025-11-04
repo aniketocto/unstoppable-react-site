@@ -103,3 +103,62 @@ img.cover {
   border-radius: 100px;
   margin-right: 5px;
 }
+
+@media screen and (max-width: 1300px) {
+  .service-card-container {
+    width: 350px;
+    height: 400px;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  section.service-section {
+    padding: 20px 30px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .service-card-container {
+    width: 300px;
+    height: 350px;
+    margin: 10px;
+  }
+  .service-title {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+  .service-description {
+    margin-top: -5px;
+  }
+  .service-card-container div {
+    gap: 3px;
+  }
+  .service-card-container div p {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .service-card-container {
+    width: 350px;
+    height: 400px;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .service-card-container {
+    width: 330px;
+    height: 400px;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .service-card-container {
+    width: 300px;
+    height: 400px;
+    margin: 0;
+  }
+}

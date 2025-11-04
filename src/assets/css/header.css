@@ -2,7 +2,7 @@ header {
   width: 100%;
   position: fixed;
   top: 0;
-  padding: 25px 100px;
+  padding: 20px 80px;
   transition: transform 0.3s ease-in-out;
   z-index: 99;
 

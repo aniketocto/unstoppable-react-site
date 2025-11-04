@@ -82,7 +82,7 @@ const Footer = () => {
           </a>
           <Link to="/career">Career</Link>
           <Link to="/blogs">Blogs</Link>
-          <Link to="/" className=" opacity-0">
+          <Link to="/" className=" hidden md:block opacity-0">
             Terms & Conditions
           </Link>
         </div>
@@ -92,13 +92,13 @@ const Footer = () => {
           <Link to="/">Privacy Policy</Link>
           <Link to="/">Disclaimer</Link>
           <Link to="/">Terms & Conditions</Link>
-          <Link to="/" className=" opacity-0">
+          <Link to="/" className=" opacity-0 hidden md:block">
             Terms & Conditions
           </Link>
-          <Link to="/" className=" opacity-0">
+          <Link to="/" className=" opacity-0 hidden md:block">
             Terms & Conditions
           </Link>
-          <Link to="/" className=" opacity-0">
+          <Link to="/" className=" opacity-0 hidden md:block">
             Terms & Conditions
           </Link>
         </div>

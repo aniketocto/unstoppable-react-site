@@ -6,9 +6,10 @@ const Hero = () => {
     <section className="hero">
       {/* keep your content above the effect */}
       <div className="hero-content">
-        <div>
+        <div className="hero-text-container">
           <h1>
-            Your St<span>ra</span>tegic <br /> Growth Partner
+            Your St<span>ra</span>tegic Growth <br />
+            Partner in Bussiness
           </h1>
           <p className="subheading">
             Marketing & Branding Solutions for <br /> Growth Focused Businesses

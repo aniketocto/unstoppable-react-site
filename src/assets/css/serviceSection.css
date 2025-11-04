@@ -9,11 +9,11 @@ section.service-section {
 }
 
 section.service-section h1.service-heading {
-  font-size: 76px;
+  font-size: 70px;
   color: #fff;
   margin-bottom: 20px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
   text-align: center;
 
   position: relative;
@@ -21,6 +21,8 @@ section.service-section h1.service-heading {
 
 section.service-section h1.service-heading span {
   color: var(--secondary-color);
+  font-size: 90px;
+  font-family: var(--font-display);
 }
 
 section.service-section p.service-text {
@@ -36,9 +38,152 @@ section.service-section p.service-text {
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  /* gap: 20px; */
   justify-items: center;
   align-items: start;
   width: 100%;
   margin-top: 60px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.service-section button.cta-interact {
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  outline: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 25px;
+  z-index: 10;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+
+  position: absolute;
+  top: -20px;
+  right: -40px;
+
+  transform: rotate(10deg);
+
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+
+.service-section button.cta-interact.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+.service-section button.cta-interact.dragging {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+@media screen and (max-width: 1440px) {
+  section.service-section h1.service-heading {
+    font-size: 60px;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 80px;
+  }
+  section.service-section p.service-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .service-section {
+    /* grid-template-columns: repeat(2, 1fr); */
+    padding: 50px;
+  }
+  section.service-section h1.service-heading {
+    font-size: 55px;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 70px;
+  }
+  section.service-section p.service-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  section.service-section h1.service-heading {
+    font-size: 55px;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 70px;
+  }
+  section.service-section p.service-text {
+    font-size: 22px;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section.service-section {
+    padding: 20px;
+  }
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+  .service-section button.cta-interact {
+    display: none;
+  }
+  section.service-section h1.service-heading {
+    font-size: 1.6rem;
+    line-height: 0.8;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 40px;
+  }
+  section.service-section p.service-text {
+    font-size: 17px;
+    /* width: 80%; */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  section.service-section h1.service-heading {
+    font-size: 22px;
+    line-height: 0.8;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 30px;
+  }
+  section.service-section p.service-text {
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  section.service-section {
+    padding: 20px 10px !important;
+  }
+  section.service-section h1.service-heading {
+    font-size: 20px;
+    line-height: 0.8;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 30px;
+  }
+  section.service-section p.service-text {
+    font-size: 12px;
+    width: 100%;
+  }
 }

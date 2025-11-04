@@ -9,9 +9,8 @@ section.banner {
 }
 
 section.banner h1.banner-heading {
-  font-size: 76px;
+  font-size: 70px;
   color: #000;
-  margin-bottom: 20px;
   font-weight: 700;
   line-height: 1.1;
   text-align: center;
@@ -19,6 +18,8 @@ section.banner h1.banner-heading {
 
 section.banner h1.banner-heading span {
   color: var(--secondary-color);
+  font-size: 90px;
+  font-family: var(--font-display);
 }
 
 section.banner p.banner-text {
@@ -37,6 +38,36 @@ section.banner p.banner-text {
   }
   section.banner p.banner-text {
     width: 40%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  section.banner h1.banner-heading {
+    font-size: 55px;
+  }
+  section.banner h1.banner-heading span {
+    font-size: 80px;
+  }
+  section.banner p.banner-text {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  section.banner p.banner-text {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  section.banner h1.banner-heading {
+    font-size: 50px;
+  }
+  section.banner h1.banner-heading span {
+    font-size: 70px;
+  }
+  section.banner p.banner-text {
+    font-size: 20px;
   }
 }
 
@@ -65,10 +96,25 @@ section.banner p.banner-text {
     padding: 50px 20px;
   }
   section.banner h1.banner-heading {
-    font-size: 30px;
+    font-size: 2.2rem;
+  }
+  section.banner h1.banner-heading span {
+    font-size: 55px;
   }
   section.banner p.banner-text {
-    width: 80%;
-    font-size: 20px;
+    width: 100%;
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  section.banner h1.banner-heading {
+    font-size: 30px;
+  }
+  section.banner h1.banner-heading span {
+    font-size: 50px;
+  }
+  section.banner p.banner-text {
+    font-size: 15px;
   }
 }

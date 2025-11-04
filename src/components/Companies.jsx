@@ -9,7 +9,7 @@ const Companies = () => {
       {companyIcon.map((company, index) => (
         <div
           key={index}
-          className="inline-block w-[170px] p-5 bg-white mr-0"
+          className="inline-block w-[110px] lg:w-[170px] p-5 bg-white mr-0"
           style={{ display: "inline-block" }}
         >
           <img

@@ -10,30 +10,30 @@
 
 /* Roundhand (example Regular + Bold) */
 @font-face {
-  font-family: "Roundhand";
-  src: url("/fonts/Roundhand-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Roundhand-Regular";
   font-style: normal;
-  font-display: swap;
+  font-weight: normal;
+  src: local("/fonts/Roundhand Bold.woff"),
+    url("../public/font/Roundhand\ Bold.ttf") format("trueType");
 }
 @font-face {
-  font-family: "Roundhand";
-  src: url("/fonts/Roundhand-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "Roundhand-Regular";
   font-style: normal;
-  font-display: swap;
+  font-weight: normal;
+  src: local("/fonts/Roundhand Regular"),
+    url("../public/font/Roundhand\ Regular.ttf") format("trueType");
 }
 
 @font-face {
   font-family: "SFProDisplay";
-  src: url("/fonts/SFProDisplayRegular.otf") format("opentype");
+  src: url("../public/font/SFPRODISPLAYREGULAR.OTF") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "SFProDisplay";
-  src: url("/fonts/SFProDisplayBold.otf") format("opentype");
+  src: url("../public/font/SFPRODISPLAYBOLD.OTF") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -46,9 +46,8 @@
   --text-primary-color: #fff;
   --text-secondary-color: #e6e6e6;
   --background-color: #060606;
-  --font-sans: "SFProDisplay", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-  --font-display: "Roundhand", cursive;
+  --font-sans: "SFProDisplay", sans-serif;
+  --font-display: "Roundhand-Regular";
 }
 
 input,
@@ -74,10 +73,8 @@ body {
 }
 
 body::-webkit-scrollbar {
-  /* display: none; */
+  display: none;
 }
-
-
 
 .scroll-to-top {
   position: fixed;

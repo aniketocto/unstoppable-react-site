@@ -37,7 +37,7 @@ section.case_study-section p.case_study-text {
 }
 
 /* make transforms smoother and optimized */
-button.cta-interact {
+.case_study-section button.cta-interact {
   background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
@@ -70,13 +70,13 @@ button.cta-interact {
 }
 
 /* disable CSS transition while actively dragging so gsap.set is instant */
-button.cta-interact.dragging {
+.case_study-section button.cta-interact.dragging {
   transition: none;
   cursor: grabbing;
 }
 
 /* optional: a subtle shadow while dragging */
-button.cta-interact.dragging {
+.case_study-section button.cta-interact.dragging {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 

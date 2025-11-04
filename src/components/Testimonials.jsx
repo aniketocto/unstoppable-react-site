@@ -25,9 +25,9 @@ const Testimonials = () => {
           centeredSlides={true}
           pagination={{ clickable: true }}
           breakpoints={{
-            320: { slidesPerView: 1.2, spaceBetween: 10 },
-            640: { slidesPerView: 1.5, spaceBetween: 15 },
-            768: { slidesPerView: 2, spaceBetween: 20 },
+            320: { slidesPerView: 1, spaceBetween: 0 },
+            640: { slidesPerView: 1, spaceBetween: 0 },
+            768: { slidesPerView: 1, spaceBetween: 0 },
             1024: { slidesPerView: 2.2, spaceBetween: 20 },
           }}
           className="swiper testimonial"

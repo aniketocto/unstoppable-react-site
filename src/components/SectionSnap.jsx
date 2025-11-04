@@ -39,13 +39,11 @@ const SectionSnap = () => {
       const prevImg =
         prevSection && prevSection.querySelector("img.img-animate");
 
-      // new: find .from-bottom elements in target and previous sections
       const fromBottom =
         targetSection && targetSection.querySelector(".from-bottom");
       const prevFromBottom =
         prevSection && prevSection.querySelector(".from-bottom");
 
-      // kill any running tweens
       if (img) gsap.killTweensOf(img);
       if (prevImg) gsap.killTweensOf(prevImg);
       if (fromBottom) gsap.killTweensOf(fromBottom);
@@ -59,7 +57,7 @@ const SectionSnap = () => {
         },
       });
 
-      // animate scroll
+      // animate scroll (GSAP)
       tl.to(
         scrollEl,
         {
@@ -70,7 +68,6 @@ const SectionSnap = () => {
         0
       );
 
-      // animate image in the target section (if present) in sync
       if (img) {
         tl.fromTo(
           img,
@@ -80,18 +77,17 @@ const SectionSnap = () => {
         );
       }
 
-      // animate target .from-bottom element in sync with scroll
       if (fromBottom) {
         tl.fromTo(
           fromBottom,
           { scale: 0.09, y: 24, opacity: 0.85 },
-          { scale: 1, y: 0, opacity: 1, duration : 1.5, ease },
+          { scale: 1, y: 0, opacity: 1, duration: 1.5, ease },
           0
         );
       }
     };
 
-    // click handler -> advance to next
+    // click handler -> keep the animated advance
     const onClickAdvance = (e) => {
       if (!activeSectionRef.current || isAnimatingRef.current) return;
       const next = currentIndex === total - 1 ? 0 : currentIndex + 1;
@@ -108,11 +104,14 @@ const SectionSnap = () => {
       });
     };
 
-    const preventScroll = (ev) => ev.preventDefault();
+    const onWheel = (e) => {
+      if (isAnimatingRef.current) {
+        e.preventDefault();
+        return;
+      }
+    };
 
-    // add listeners
-    scrollEl.addEventListener("wheel", preventScroll, { passive: false });
-    scrollEl.addEventListener("touchmove", preventScroll, { passive: false });
+    scrollEl.addEventListener("wheel", onWheel, { passive: false });
     scrollEl.addEventListener("click", onClickAdvance);
 
     observerRef.current = new IntersectionObserver(
@@ -143,16 +142,18 @@ const SectionSnap = () => {
     sections.forEach((s) => observerRef.current.observe(s));
 
     const onResize = () => {
-      // keep position on resize
-      scrollToIndex(currentIndex);
+      // keep position stable on resize (instant)
+      scrollEl.scrollTo({
+        top: currentIndex * scrollEl.clientHeight,
+        behavior: "auto",
+      });
     };
     window.addEventListener("resize", onResize);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
       scrollEl.removeEventListener("click", onClickAdvance);
-      scrollEl.removeEventListener("wheel", preventScroll);
-      scrollEl.removeEventListener("touchmove", preventScroll);
+      scrollEl.removeEventListener("wheel", onWheel);
       window.removeEventListener("resize", onResize);
       if (observerRef.current) {
         sections.forEach((s) => observerRef.current.unobserve(s));

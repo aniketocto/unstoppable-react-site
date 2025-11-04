@@ -249,6 +249,7 @@ input.footer-email {
   }
   .copyright {
     padding: 20px;
+    margin: 0;
   }
   .copyright a,
   .copyright p {
