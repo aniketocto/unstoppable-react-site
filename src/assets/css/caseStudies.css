@@ -1,6 +1,6 @@
 section.case_study-section {
   background-color: #030303;
-  padding: 50px 100px;
+  padding: 90px 100px 20px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -11,18 +11,19 @@ section.case_study-section {
 }
 
 section.case_study-section h1.case_study-heading {
-  font-size: 72px;
-
-  margin-bottom: 20px;
+  font-size: 70px;
+  color: #fff;
   font-weight: 700;
   line-height: 1.1;
   text-align: center;
-
+  margin-bottom: 10px;
   position: relative;
 }
 
 section.case_study-section h1.case_study-heading span {
   color: var(--secondary-color);
+  font-size: 90px;
+  font-family: var(--font-display);
 }
 
 section.case_study-section p.case_study-text {
@@ -33,7 +34,7 @@ section.case_study-section p.case_study-text {
   text-align: center;
   line-height: normal;
 
-  width: 65%;
+  width: 40%;
 }
 
 /* make transforms smoother and optimized */
@@ -80,11 +81,84 @@ section.case_study-section p.case_study-text {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* keep layout stable */
-section.case_study-section h1.case_study-heading {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px; /* so button doesn't overlap text badly */
-  justify-content: center;
-  position: relative;
+
+
+@media screen and (max-width: 1440px) {
+  section.case_study-section h1.case_study-heading {
+    font-size: 60px;
+  }
+
+  section.case_study-section h1.case_study-heading span {
+    font-size: 80px;
+  }
+
+  section.case_study-section p.case_study-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  section.case_study-section h1.case_study-heading {
+    font-size: 55px;
+  }
+
+  section.case_study-section h1.case_study-heading span {
+    font-size: 70px;
+  }
+
+  section.case_study-section p.case_study-text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  section.case_study-section h1.case_study-heading {
+    font-size: 50px;
+  }
+
+  section.case_study-section h1.case_study-heading span {
+    font-size: 70px;
+  }
+
+  section.case_study-section p.case_study-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  section.case_study-section h1.case_study-heading {
+    font-size: 50px;
+  }
+
+  section.case_study-section h1.case_study-heading span {
+    font-size: 70px;
+  }
+
+  section.case_study-section p.case_study-text {
+    font-size: 20px;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section.case_study-section {
+    padding: 50px 20px;
+  }
+  section.case_study-section h1.case_study-heading {
+    font-size:2rem;
+  }
+
+  section.case_study-section h1.case_study-heading span {
+    font-size: 55px;
+  }
+
+  section.case_study-section p.case_study-text {
+    font-size: 1rem;
+    width: 100%;
+  }
+  .case_study-section button.cta-interact {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    display: none;
+  }
 }

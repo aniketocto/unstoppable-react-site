@@ -99,7 +99,7 @@ const CaseStudies = () => {
     <>
       <section className="case_study-section">
         <h1 className="case_study-heading">
-          From Vision to Velocity
+          From V<span>is</span>ion to Velocity
           <button
             ref={btnRef}
             className="cta-interact"
@@ -109,7 +109,7 @@ const CaseStudies = () => {
           </button>
         </h1>
         <p className="case_study-text">
-          Real stories of businesses that closed their GAP <br /> and became
+          Real stories of businesses that closed their GAP and became
           unstoppable.
         </p>
       </section>

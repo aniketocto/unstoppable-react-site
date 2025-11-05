@@ -99,9 +99,9 @@ const Home = () => {
       </Marquee>
       <div className="bg-white h-[50px]"></div>
       <SectionSnap />
-      <GrowthSection />
-      {/* <CaseStudies /> */}
+      <CaseStudies />
       <ServiceSection />
+      <GrowthSection />
       {/*  <DnaForm />
       <Marquee className="h-14 bg-white relative z-10">
         <MarqueText />
