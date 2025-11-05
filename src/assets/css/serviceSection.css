@@ -133,6 +133,20 @@ section.service-section p.service-text {
   }
 }
 
+
+@media screen and (max-width: 800px) {
+  section.service-section h1.service-heading {
+    font-size: 50px;
+  }
+  section.service-section h1.service-heading span {
+    font-size: 70px;
+  }
+  section.service-section p.service-text {
+    font-size: 20px;
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   section.service-section {
     padding: 20px;
@@ -159,7 +173,7 @@ section.service-section p.service-text {
 
 @media screen and (max-width: 500px) {
   section.service-section h1.service-heading {
-    font-size: 22px;
+    font-size: 1.5rem;
     line-height: 0.8;
   }
   section.service-section h1.service-heading span {

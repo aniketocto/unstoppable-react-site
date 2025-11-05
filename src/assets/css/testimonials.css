@@ -248,3 +248,31 @@ span.designation {
     width: 600px !important;
   }
 }
+
+@media screen and (max-width: 600px) {
+  section.testimonials {
+    padding: 50px 20px;
+  }
+  section.testimonials .testimonials-heading {
+    font-size: 2.2rem;
+  }
+  section.testimonials .testimonials-heading span {
+    font-size: 55px;
+  }
+  section.testimonials .testimonials-text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  section.testimonials .testimonials-heading {
+    font-size: 25px;
+  }
+  section.testimonials .testimonials-heading span {
+    font-size: 37px;
+  }
+  section.testimonials .testimonials-text {
+    font-size: 15px;
+    margin-top: 5px;
+  }
+}

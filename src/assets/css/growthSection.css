@@ -199,18 +199,6 @@ button.cta {
   }
 }
 
-@media screen and (max-width: 400px) {
-  section.growth-section h1.growth-heading {
-    font-size: 28px;
-    text-align: center;
-  }
-  section.growth-section h1.growth-heading span {
-    font-size: 40px;
-  }
-  section.growth-section p.growth-text {
-    font-size: 15px;
-  }
-}
 
 @media screen and (max-width: 400px) {
   section.growth-section h1.growth-heading {
