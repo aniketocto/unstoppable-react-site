@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>3D Carousel Ring (GSAP + jQuery) - fixed</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+      html,body {
+        width:100%;
+        height:100%;
+        margin:0;
+        padding:0;
+        background:#000;
+      }
+      .stage { position:relative; width:100%; height:100%; overflow:hidden; user-select:none; }
+      .container {
+        position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+        width:320px; height:420px; perspective:2000px;
+      }
+      .ring { position:relative; width:100%; height:100%; transform-style:preserve-3d; cursor:grab; }
+      .img {
+        position:absolute; left:0; top:0; width:100%; height:100%;
+        transform-style:preserve-3d; background-size:cover; background-position:center center;
+        background-repeat:no-repeat; transition:opacity .22s ease, transform .22s ease;
+        backface-visibility:hidden; box-shadow: 0 18px 40px rgba(0,0,0,0.65); border-radius:12px; overflow:hidden;
+        will-change: transform, opacity;
+      }
+      .img:hover { transform: translateZ(40px) scale(1.02); }
+      @media (max-width:520px) { .container { width: 92vw; height: 60vh; } }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="container">
+        <div class="ring">
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+          <div class="img"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // helper to compute background parallax and panel visibility
+      function getBgPos(i){
+        var rot = gsap.getProperty('.ring','rotationY') || 0;
+        var wrapped = gsap.utils.wrap(0,360, rot - 180 - i*36);
+        var posX = 100 - (wrapped / 360) * 500;
+        return posX + 'px 0px';
+      }
+
+      // set opacity/zIndex based on angle from camera
+      function updatePanels(){
+        var ringRot = gsap.getProperty('.ring','rotationY') || 0;
+        // for each panel, compute angle relative to front and apply styles
+        $('.img').each(function(i, el){
+          var rel = gsap.utils.wrap(-180,180, ringRot - 180 - i*36); // -180..180
+          var absA = Math.abs(rel);
+          // front-facing threshold: within 75deg is "front"
+          var frontThreshold = 75;
+          // opacity interpolation (1 at 0deg, 0.15 at >=180deg)
+          var opacity = absA <= frontThreshold ? 1 : 1 - ((Math.min(absA,180) - frontThreshold)/(180-frontThreshold)) * 0.85;
+          // clip min so hidden panels are very faint
+          if (opacity < 0.15) opacity = 0.15;
+          // zIndex so front panels render above others (lower absA -> higher z)
+          var z = Math.round(100 - absA);
+
+          // apply styles (use gsap.set for smoothness)
+          gsap.set(el, { opacity: opacity, zIndex: z });
+        });
+      }
+
+      // main init
+      $(function(){
+        var xPos = 0;
+
+        gsap.timeline()
+          .set('.ring', { rotationY: 180, cursor: 'grab' })
+          .set('.img', {
+            rotateY: function(i){ return i * -36; },
+            transformOrigin: '50% 50% 500px',
+            z: -500,
+            backgroundImage: function(i){ return 'url(https://picsum.photos/id/' + (0 + i) + '/900/600)'; },
+            backgroundPosition: function(i){ return getBgPos(i); },
+            backfaceVisibility: 'hidden'
+          })
+          .from('.img', {
+            duration: 1.5,
+            y: 200,
+            opacity: 1,
+            stagger: ,
+            ease: 'expo.out'
+          })
+          .add(function(){
+            // attach hover handlers
+            $('.img').on('mouseenter', function(e){
+              var current = e.currentTarget;
+              gsap.to('.img', { opacity: function(i,t){ return (t === current) ? 1 : 0.5; }, ease: 'power3.out' });
+            });
+            $('.img').on('mouseleave', function(){
+              // when leaving, re-evaluate based on ring rotation
+              updatePanels();
+            });
+          }, '-=0.5');
+
+        // initial update so only front panel is strong
+        updatePanels();
+
+        // drag handlers
+        $(window).on('mousedown touchstart', dragStart);
+        $(window).on('mouseup touchend', dragEnd);
+
+        function dragStart(e){
+          if (e.originalEvent && e.originalEvent.touches) e.clientX = e.originalEvent.touches[0].clientX;
+          xPos = Math.round(e.clientX);
+          gsap.set('.ring', { cursor: 'grabbing' });
+          $(window).on('mousemove touchmove', drag);
+        }
+
+        function drag(e){
+          if (e.originalEvent && e.originalEvent.touches) e.clientX = e.originalEvent.touches[0].clientX;
+          var delta = (Math.round(e.clientX) - xPos) % 360;
+          gsap.to('.ring', {
+            rotationY: '-=' + delta,
+            duration: 0.14,
+            ease: 'power1.out',
+            onUpdate: function(){
+              gsap.set('.img', { backgroundPosition: function(i){ return getBgPos(i); } });
+              updatePanels();
+            }
+          });
+          xPos = Math.round(e.clientX);
+        }
+
+        function dragEnd(){
+          $(window).off('mousemove touchmove', drag);
+          gsap.set('.ring', { cursor: 'grab' });
+        }
+
+        // optional click to center behavior (keeps updatePanels call)
+        $('.img').on('click', function(){
+          var idx = $('.img').index(this);
+          var target = 180 + idx * 36;
+          gsap.to('.ring', {
+            rotationY: target,
+            duration: 0.7,
+            ease: 'power3.out',
+            onUpdate: function(){
+              gsap.set('.img', { backgroundPosition: function(i){ return getBgPos(i); } });
+              updatePanels();
+            }
+          });
+        });
+
+        // cleanup on unload
+        $(window).on('unload', function(){
+          $('.img').off('mouseenter mouseleave click');
+          $(window).off('mousedown touchstart mouseup touchend mousemove touchmove');
+        });
+      });
+    </script>
+  </body>
+</html>

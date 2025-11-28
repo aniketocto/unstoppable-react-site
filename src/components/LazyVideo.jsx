@@ -30,9 +30,7 @@ const LazyVideo = () => {
   }, []);
 
   return (
-    <section className="w-full h-auto lg:h-[95vh] relative overflow-hidden z-10" style={{
-      margin: "40px auto"
-    }}>
+    <section className="w-full h-auto lg:h-[95vh] relative overflow-hidden z-10">
       <video
         ref={videoRef}
         className="w-full h-auto object-contain"

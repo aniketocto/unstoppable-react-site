@@ -1,63 +1,37 @@
 .main_snap_container {
   background-color: #030303;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  overflow: hidden; /* keep outer container fixed */
   position: relative;
+  overflow: visible;
 }
 .snap_scroll {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden; /* disable native scroll */
-  scroll-snap-type: y mandatory; /* still helpful for layout */
-  -webkit-overflow-scrolling: touch;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #000 16%,
+    #000 13%,
+    #d80600 30%,
+    #ff0600 45%,
+    #ff804e 65%,
+    #fff7b3 80%,
+    #fff9e1 90%,
+    #ffffff 100%
+  );
 }
-
-/* each snap section */
 .snap_section {
   scroll-snap-align: start;
-  min-height: 100vh; /* ensures it always fills viewport */
-  height: 100dvh; /* use dynamic vh on mobile where supported */
+  min-height: 100vh;
   width: 100%;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
-/* image covering background */
-.snap_section img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
-
-.img-animate {
-  will-change: transform, opacity;
-  /* ensure transforms look right when scaling */
-  transform-origin: center top;
-  backface-visibility: hidden;
-}
-
-/* video should pop from bottom */
-.img-animate.from-bottom {
-  transform-origin: center bottom;
-}
-
-/* content sits above image */
-.snap_section > * {
-  z-index: 2;
-}
-
-/* headings + text (example styles) */
 .snap_container_1 h1.snap_container_1-heading {
   font-size: 70px;
   color: #fff;
@@ -98,37 +72,38 @@
 .snap_container_2 p.snap_container_2-text {
   font-weight: 500;
 }
-/* CTA cursor */
-.cta-cursor {
-  position: fixed;
-  top: 0;
+
+.curtain_holder {
+  position: absolute;
   left: 0;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.02);
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
+  top: 500px;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+
   display: flex;
-  align-items: center;
   justify-content: center;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  opacity: 0;
-  transform-origin: center;
-  z-index: 9999;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  scale: 0.6;
-  transition: transform 0.12s ease;
+  align-items: center;
 }
 
-/* optional: hide custom cursor on small touch devices */
-@media (pointer: coarse) {
-  .cta-cursor {
-    display: none;
-  }
+.curtain_holder .curtain {
+  width: 1000px;
+  height: 1000px;
+  background: #000;
+}
+
+.curtain-1 {
+  border-bottom-right-radius: 100%;
+}
+
+.curtain-2 {
+  border-bottom-left-radius: 100%;
+}
+
+.snap_container_2-text,
+.snap_container_2-text-2 {
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
 }
 
 @media screen and (max-width: 1440px) {

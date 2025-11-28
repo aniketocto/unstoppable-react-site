@@ -1,28 +1,45 @@
-// components/Companies.jsx
-import React from "react";
-import { companyIcon } from "../utils/data";
+import React, { useRef } from "react";
+import "../assets/css/companies.css";
 
 const Companies = () => {
-  return (
-    // keep this as a single-line, no-wrap container so react-fast-marquee duplicates cleanly
-    <div className="flex items-center gap-32 bg-white whitespace-nowrap bg-transparent">
-      {companyIcon.map((company, index) => (
-        <div
-          key={index}
-          className="inline-block w-[110px] lg:w-[170px] p-5 bg-white mr-0"
-          style={{ display: "inline-block" }}
-        >
-          <img
-            src={company.imgsrc}
-            alt={company.alt}
-            className="w-full h-auto object-contain block"
-            style={{ display: "block", border: "0", background: "transparent" }}
-          />
-        </div>
-      ))}
+  const logos = [
+    "images_1/logo1.png",
+    "images_1/logo2.png",
+    "images_1/logo3.png",
+    "images_1/logo4.png",
+    "images_1/logo5.png",
+    "images_1/logo6.png",
+    "images_1/logo7.png",
+  ];
 
-      {/* Spacer to ensure a visible gap before the duplicated loop begins */}
-      <div className="inline-block" style={{ minWidth: 140 }} />
+  const trackRef = useRef(null);
+
+  const setPlaybackRate = (rate) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const anims = el.getAnimations?.() || [];
+    if (anims.length) {
+      anims.forEach((anim) => {
+        anim.playbackRate = rate;
+      });
+    } else {
+      el.style.animationDuration = rate === 1 ? "35s" : `${35 / rate}s`;
+    }
+  };
+  return (
+    <div
+      className="logos"
+      onMouseEnter={() => setPlaybackRate(0.5)}
+      onMouseLeave={() => setPlaybackRate(2)}
+    >
+      <div className="logos-track" ref={trackRef}>
+        {logos.map((src, i) => (
+          <img key={`a-${i}`} src={src} alt={`logo-${i}`} />
+        ))}
+        {logos.map((src, i) => (
+          <img key={`b-${i}`} src={src} alt={`logo-dup-${i}`} />
+        ))}
+      </div>
     </div>
   );
 };

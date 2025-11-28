@@ -79,25 +79,7 @@ const Home = () => {
       </Helmet>
       <Hero />
       <BusinessSection />
-      <Marquee
-        className="h-fit relative z-10"
-        speed={55}
-        gradient={false}
-        pauseOnHover={true}
-      >
-        <Companies />
-      </Marquee>
-      <div className="bg-white h-14"></div>
-      <Marquee
-        className="h-fit relative z-10"
-        speed={55}
-        gradient={false}
-        direction="right"
-        pauseOnHover={true}
-      >
-        <Companies />
-      </Marquee>
-      <div className="bg-white h-[50px]"></div>
+      <Companies />
       <SectionSnap />
       <CaseStudies />
       <ServiceSection />

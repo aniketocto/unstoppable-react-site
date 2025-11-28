@@ -140,6 +140,60 @@ const slides = [
 ];
 
 export default function CarouselWithMask() {
+  // handler to call with the swiper instance
+  const applyNextNextClass = (swiper) => {
+    if (!swiper || !swiper.slides) return;
+
+    const slidesArr = Array.from(swiper.slides);
+
+    // remove helper on every run
+    slidesArr.forEach((s) => s.classList.remove("next-next-condition"));
+
+    // find one of the DOM nodes that is currently active to read its logical index
+    const activeNode = slidesArr.find((s) =>
+      s.classList.contains("swiper-slide-active")
+    );
+    if (!activeNode) return;
+
+    const logicalActive = Number(activeNode.dataset.swiperSlideIndex);
+
+    // compute logical indices for next and next-next (wrap by realCount)
+    // get realCount by reading max data-swiper-slide-index + 1
+    const maxIndex = slidesArr.reduce((acc, el) => {
+      const idx = Number(el.dataset.swiperSlideIndex);
+      return Number.isFinite(idx) ? Math.max(acc, idx) : acc;
+    }, -1);
+    const realCount = maxIndex + 1 || 1;
+
+    const logicalNext = (logicalActive + 1) % realCount;
+    const logicalNextNext = (logicalActive + 2) % realCount;
+
+    // check condition: there must exist DOM duplicates of logicalActive with active+visible+fully-visible
+    const cond1 = slidesArr.some(
+      (s) =>
+        Number(s.dataset.swiperSlideIndex) === logicalActive &&
+        s.classList.contains("swiper-slide-active") &&
+        s.classList.contains("swiper-slide-visible") &&
+        s.classList.contains("swiper-slide-fully-visible")
+    );
+
+    // check cond2: there must exist duplicates of logicalNext with next + visible + fully-visible
+    const cond2 = slidesArr.some(
+      (s) =>
+        Number(s.dataset.swiperSlideIndex) === logicalNext &&
+        s.classList.contains("swiper-slide-next") &&
+        s.classList.contains("swiper-slide-visible") &&
+        s.classList.contains("swiper-slide-fully-visible")
+    );
+
+    // if both conditions satisfied, add class to all duplicates of logicalNextNext
+    if (cond1 && cond2) {
+      slidesArr
+        .filter((s) => Number(s.dataset.swiperSlideIndex) === logicalNextNext)
+        .forEach((s) => s.classList.add("next-next-condition"));
+    }
+  };
+
   return (
     <div className="carousel-wrap">
       <div className="carousel-stage">
@@ -151,18 +205,29 @@ export default function CarouselWithMask() {
           loop={true}
           coverflowEffect={{
             rotate: 30,
-            stretch: 30,
+            stretch: 10,
             depth: 110,
             modifier: 1,
             slideShadows: true,
           }}
           spaceBetween={25}
-          // autoplay={{
-          //   delay: 3200,
-          //   disableOnInteraction: true,
-          //   pauseOnMouseEnter: true,
-          // }}
+          autoplay={{
+            delay: 3200,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+          }}
           className="carousel-swiper"
+          onSwiper={(swiper) => {
+            // initial run
+            applyNextNextClass(swiper);
+          }}
+          onSlideChange={(swiper) => {
+            applyNextNextClass(swiper);
+          }}
+          onTransitionEnd={(swiper) => {
+            // sometimes classes finalize on transition end — keep it robust
+            applyNextNextClass(swiper);
+          }}
         >
           {slides.map((s) => (
             <SwiperSlide key={s.id} style={{ width: "640px" }}>

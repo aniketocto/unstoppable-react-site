@@ -1,0 +1,57 @@
+/* move by half the track because we duplicated the content */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  background: white;
+  position: relative;
+  z-index: 1;
+  padding: 20px 0 50px;
+}
+
+/* fades at edges */
+/* .logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+  pointer-events: none;
+} */
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+/* the long track that scrolls (contains two back-to-back sets of logos) */
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 90px; /* spacing between logos */
+  width: max-content; /* lets the content define width */
+  animation: slide 35s linear infinite;
+}
+
+
+
+.logos-track img {
+  height: 60px;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}

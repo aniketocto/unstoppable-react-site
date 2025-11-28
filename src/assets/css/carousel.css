@@ -55,7 +55,7 @@
   position: relative;
 }
 
-.swiper-slide {
+.carousel-wrap .swiper-slide {
   width: var(--card-width) !important;
   height: var(--card-height) !important;
 }
@@ -197,6 +197,11 @@
   border: 1px solid #fff;
 }
 
+.swiper-slide-active {
+  z-index: 2;
+  transform: scale(0.85) !important;
+}
+
 /* responsive tweaks */
 @media (max-width: 1100px) {
   :root {
@@ -224,5 +229,42 @@
     font-size: 0.95rem;
     left: 12px;
     bottom: 12px;
+  }
+}
+
+/* End Left */
+
+.carousel-wrap {
+  .swiper-slide.swiper-slide-visible:has(
+      + .swiper-slide.swiper-slide-visible.swiper-slide-prev
+        + .swiper-slide.swiper-slide-visible.swiper-slide-active
+    ) {
+    transform: translate3d(21.25px, 0px, -160px) rotateX(0deg) rotateY(60deg)
+      scale(1.15) !important;
+  }
+
+  /* End 2nd Left */
+  .swiper-slide.swiper-slide-visible.swiper-slide-prev:has(
+      + .swiper-slide.swiper-slide-visible.swiper-slide-active
+    ) {
+    transform: translate3d(10.625px, 0px, -200px) rotateX(0deg) rotateY(10deg)
+      scale(1.01) !important;
+  }
+
+  /* End 2nd right */
+  .swiper-slide.swiper-slide-next.swiper-slide-visible.swiper-slide-fully-visible {
+    transform: translate3d(-10.625px, 0px, -200px) rotateX(0deg) rotateY(-10deg)
+      scale(1) !important;
+  }
+
+  .swiper-slide {
+    transition: transform 360ms cubic-bezier(0.22, 0.9, 0.36, 1);
+    will-change: transform;
+  }
+
+  /* keep your selector specificity but remove !important if possible */
+  .swiper-slide.next-next-condition {
+    transform: translate3d(-21.25px, 0px, -170px) rotateX(0deg) rotateY(-60deg)
+      scale(1.14) !important;
   }
 }
